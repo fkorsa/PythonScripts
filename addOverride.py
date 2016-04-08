@@ -1,15 +1,16 @@
-import re
+import re, json
 
 file = open('override.txt', 'r')
 contents = file.read()
 file.close()
-regex = r"(Vue/Source/.*?):([0-9]+):([0-9]+): warning: '(.*?)' overrides"
-result = re.findall(regex, contents)
+result = json.loads(contents)['inconsistent-missing-override']
 for elem in result:
-    filename = elem[0]
+    filename = '.' + elem[0]
     lineInFile = int(elem[1])
     characterInFile = elem[2]
-    functionName = elem[3]
+    functionName = re.match(r"^\s*'(.*?)' overrides a member", elem[3], re.DOTALL).groups(1)[0]
+    print "Function name: " + functionName
+    raw_input('Press any key...')
     file = open(filename, 'r')
     contents = file.read()
     file.close()
