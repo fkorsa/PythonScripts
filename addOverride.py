@@ -1,16 +1,15 @@
-import re, json
+import re
 
 file = open('override.txt', 'r')
 contents = file.read()
 file.close()
-result = json.loads(contents)['inconsistent-missing-override']
+regex = r"(Vue/Source/.*?):([0-9]+):([0-9]+): warning: '(.*?)' overrides"
+result = re.findall(regex, contents)
 for elem in result:
-    filename = '.' + elem[0]
+    filename = elem[0]
     lineInFile = int(elem[1])
     characterInFile = elem[2]
-    functionName = re.match(r"^\s*'(.*?)' overrides a member", elem[3], re.DOTALL).groups(1)[0]
-    print "Function name: " + functionName
-    raw_input('Press any key...')
+    functionName = elem[3]
     file = open(filename, 'r')
     contents = file.read()
     file.close()
@@ -20,10 +19,18 @@ for elem in result:
         currentLine = currentLine + 1
         indexNewline = contents.find('\n', indexNewline + 1)
     startReplace = indexNewline + 1
-    match = re.match(r'^.*?'+functionName+'\([^;{]*?\)\s*(const)?\s*EON_OVERRIDE\s*(const)?(;|{)', contents[startReplace:], re.DOTALL)
+    match = re.match(r'^[^;{]*?'+functionName+'\([^;{]*?\)\s*(const)?\s*EON_OVERRIDE\s*(const)?(;|{)', contents[startReplace:], re.DOTALL)
     if match == None:
         replacement = re.sub(r'^(\s*)(virtual\s*)?(([a-zA-Z_]+\s+)*?'+functionName+'\(.*?\)\s*?(const)?)(\s*(;|{))', r'\1\3 EON_OVERRIDE\6', contents[startReplace:], 1, re.DOTALL)
         contents = contents[:startReplace] + replacement
         file = open(filename, 'w')
         file.write(contents)
         file.close()
+    else:
+        print "function: " + functionName
+        print "file: " + filename
+        print "line: " + elem[1]
+        print "Match:"
+        print match.group(0)
+        #raw_input('Press any key...')
+        

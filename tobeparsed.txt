@@ -1,247 +1,651 @@
-Line 1553: Vue/Source/graph/LeafFunctionNodes.cpp:542:28: warning: 'DoClone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1554: Vue/Source/graph/LeafFunctionNodes.cpp:547:48: warning: 'DoCompile' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1555: Vue/Source/graph/LeafFunctionNodes.cpp:647:28: warning: 'DoClone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1556: Vue/Source/graph/LeafFunctionNodes.cpp:652:48: warning: 'DoCompile' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1557: Vue/Source/graph/LeafFunctionNodes.cpp:708:28: warning: 'DoClone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1558: Vue/Source/graph/LeafFunctionNodes.cpp:713:48: warning: 'DoCompile' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1561: Vue/Source/graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1562: Vue/Source/graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1563: Vue/Source/graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1564: Vue/Source/graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1637: Vue/Source/graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1647: Vue/Source/graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1648: Vue/Source/graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1649: Vue/Source/graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1650: Vue/Source/graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1676: Vue/Source/EONGUI/SlideBoxCtrl.cpp:214:17: warning: 'RemoveItemAt' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1850: Vue/Source/EONGUI/UnitTests/DockTests.cpp:216:15: warning: 'ReplaceChild' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1851: Vue/Source/EONGUI/UnitTests/DockTests.cpp:220:21: warning: 'Rect' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1852: Vue/Source/EONGUI/UnitTests/DockTests.cpp:224:21: warning: 'Size' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1853: Vue/Source/EONGUI/UnitTests/DockTests.cpp:228:31: warning: 'BreadthFirstSizes' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1854: Vue/Source/EONGUI/UnitTests/DockTests.cpp:237:15: warning: 'HasUI' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1855: Vue/Source/EONGUI/UnitTests/DockTests.cpp:259:21: warning: 'ParentTree' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1856: Vue/Source/EONGUI/UnitTests/DockTests.cpp:283:42: warning: 'Children' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1857: Vue/Source/EONGUI/UnitTests/DockTests.cpp:287:24: warning: 'Parent' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1858: Vue/Source/EONGUI/UnitTests/DockTests.cpp:291:21: warning: 'ParentNoAssert' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1859: Vue/Source/EONGUI/UnitTests/DockTests.cpp:304:18: warning: 'InsertChild' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1860: Vue/Source/EONGUI/UnitTests/DockTests.cpp:308:15: warning: 'InsertChildren' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1861: Vue/Source/EONGUI/UnitTests/DockTests.cpp:339:39: warning: 'SiblingHood' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1862: Vue/Source/EONGUI/UnitTests/DockTests.cpp:419:18: warning: 'Rect' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1863: Vue/Source/EONGUI/UnitTests/DockTests.cpp:423:39: warning: 'Children' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1864: Vue/Source/EONGUI/UnitTests/DockTests.cpp:427:21: warning: 'Parent' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1865: Vue/Source/EONGUI/UnitTests/DockTests.cpp:431:21: warning: 'ParentNoAssert' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1866: Vue/Source/EONGUI/UnitTests/DockTests.cpp:435:39: warning: 'SiblingHood' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1867: Vue/Source/EONGUI/UnitTests/DockTests.cpp:445:15: warning: 'InsertChild' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1868: Vue/Source/EONGUI/UnitTests/DockTests.cpp:449:15: warning: 'InsertChildren' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1869: Vue/Source/EONGUI/UnitTests/DockTests.cpp:490:21: warning: 'ParentTree' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1870: Vue/Source/EONGUI/UnitTests/DockTests.cpp:519:15: warning: 'InsertChild' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1871: Vue/Source/EONGUI/UnitTests/DockTests.cpp:523:15: warning: 'InsertChildren' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1872: Vue/Source/EONGUI/UnitTests/DockTests.cpp:527:14: warning: 'IndexOf' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1873: Vue/Source/EONGUI/UnitTests/DockTests.cpp:535:21: warning: 'Rect' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1874: Vue/Source/EONGUI/UnitTests/DockTests.cpp:547:42: warning: 'Children' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1875: Vue/Source/EONGUI/UnitTests/DockTests.cpp:556:31: warning: 'SiblingHood' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1876: Vue/Source/EONGUI/UnitTests/DockTests.cpp:566:24: warning: 'Parent' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1877: Vue/Source/EONGUI/UnitTests/DockTests.cpp:570:21: warning: 'ParentNoAssert' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1878: Vue/Source/EONGUI/UnitTests/DockTests.cpp:575:30: warning: 'ClientData' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1879: Vue/Source/EONGUI/UnitTests/DockTests.cpp:579:23: warning: 'ClientId' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1880: Vue/Source/EONGUI/UnitTests/DockTests.cpp:583:12: warning: 'ClientSuffix' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1881: Vue/Source/EONGUI/UnitTests/DockTests.cpp:587:23: warning: 'BreadthFirstSizes' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1882: Vue/Source/EONGUI/UnitTests/DockTests.cpp:612:21: warning: 'ParentTree' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1883: Vue/Source/EONGUI/UnitTests/DockTests.cpp:640:41: warning: 'Children' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1884: Vue/Source/EONGUI/UnitTests/DockTests.cpp:644:23: warning: 'Parent' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1885: Vue/Source/EONGUI/UnitTests/DockTests.cpp:648:23: warning: 'ParentNoAssert' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1886: Vue/Source/EONGUI/UnitTests/DockTests.cpp:656:17: warning: 'InsertChild' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1887: Vue/Source/EONGUI/UnitTests/DockTests.cpp:660:17: warning: 'InsertChildren' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1888: Vue/Source/EONGUI/UnitTests/DockTests.cpp:671:41: warning: 'SiblingHood' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1889: Vue/Source/EONGUI/UnitTests/DockTests.cpp:699:28: warning: 'GetGroup' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 1890: Vue/Source/EONGUI/UnitTests/DockTests.cpp:717:23: warning: 'ParentTree' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 2063: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 2081: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 2089: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 2118: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 2194: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 2431: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 2972: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 2973: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 2974: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 2975: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3001: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3070: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3071: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3072: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3073: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3131: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3154: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3155: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3191: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3192: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3463: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3518: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3531: Vue/Source/Engine/../Engine/Vegetation/Primitives/SimpleBranchPrimitive.h:71:15: warning: 'ComputePositionAndNormalCap' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3533: Vue/Source/Engine/../Engine/Vegetation/Primitives/SimpleBranchPrimitive.h:71:15: warning: 'ComputePositionAndNormalCap' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3538: Vue/Source/Engine/Vegetation/Nodes/BillboardNode.cpp:183:28: warning: 'DoClone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3540: Vue/Source/Engine/Vegetation/Nodes/BillboardNode.cpp:183:28: warning: 'DoClone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3544: Vue/Source/Engine/Vegetation/Nodes/BranchNode.cpp:1988:28: warning: 'DoClone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3545: Vue/Source/Engine/Vegetation/Nodes/BranchNode.cpp:1998:8: warning: 'HasSpecificCommonParameter' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3546: Vue/Source/Engine/Vegetation/Nodes/BranchNode.cpp:2003:16: warning: 'DoManageVeg' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3547: Vue/Source/Engine/Vegetation/Nodes/UrchinNode.cpp:216:28: warning: 'DoClone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3548: Vue/Source/Engine/Vegetation/Nodes/BranchNode.cpp:1988:28: warning: 'DoClone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3549: Vue/Source/Engine/Vegetation/Nodes/BranchNode.cpp:1998:8: warning: 'HasSpecificCommonParameter' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3550: Vue/Source/Engine/Vegetation/Nodes/BranchNode.cpp:2003:16: warning: 'DoManageVeg' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3551: Vue/Source/Engine/Vegetation/Nodes/UrchinNode.cpp:216:28: warning: 'DoClone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3552: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3553: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3554: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3555: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3556: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3558: Vue/Source/Engine/../Engine/Vegetation/Primitives/SimpleBranchPrimitive.h:71:15: warning: 'ComputePositionAndNormalCap' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3559: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3560: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3561: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3562: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3563: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3568: Vue/Source/Engine/../Engine/Vegetation/Primitives/SimpleBranchPrimitive.h:71:15: warning: 'ComputePositionAndNormalCap' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3570: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3571: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3572: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3578: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3579: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3580: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3585: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 3588: Vue/Source/Engine/../graph/ConstantNodes.h:47:15: warning: 'DoComputeValues' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4355: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4378: Vue/Source/Engine/./VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4387: Vue/Source/EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4391: Vue/Source/EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4397: Vue/Source/EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4408: Vue/Source/EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4412: Vue/Source/EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4417: Vue/Source/EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4420: Vue/Source/geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4421: Vue/Source/geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4422: Vue/Source/geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4423: Vue/Source/geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4424: Vue/Source/geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4425: Vue/Source/geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4426: Vue/Source/geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4427: Vue/Source/geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4428: Vue/Source/geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4429: Vue/Source/geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4430: Vue/Source/geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4431: Vue/Source/geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4440: Vue/Source/geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4441: Vue/Source/geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4442: Vue/Source/geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4443: Vue/Source/geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4444: Vue/Source/geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4445: Vue/Source/geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4446: Vue/Source/geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4447: Vue/Source/geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4448: Vue/Source/geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4449: Vue/Source/geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4450: Vue/Source/geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4451: Vue/Source/geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4623: Vue/Source/StandaloneRenderer/../Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4657: Vue/Source/Slave/../Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4681: Vue/Source/StandaloneRenderer/../Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4725: Vue/Source/Slave/../Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4767: Vue/Source/Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4856: Vue/Source/Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4925: Vue/Source/HyperVue/../Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 4999: Vue/Source/HyperVue/../Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5208: Vue/Source/Filedial.cpp:2494:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5209: Vue/Source/Filedial.cpp:3579:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5210: Vue/Source/Filedial.cpp:3691:14: warning: 'OnOK' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5258: Vue/Source/Filedial.cpp:2494:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5259: Vue/Source/Filedial.cpp:3579:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5260: Vue/Source/Filedial.cpp:3691:14: warning: 'OnOK' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5344: Vue/Source/Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5514: Vue/Source/Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5671: Vue/Source/Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5755: Vue/Source/Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5916: Vue/Source/Filedial.cpp:558:15: warning: 'DynamicInit' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5918: Vue/Source/Filedial.cpp:1358:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5919: Vue/Source/Filedial.cpp:1470:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5920: Vue/Source/Filedial.cpp:1502:14: warning: 'OnOK' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5922: Vue/Source/Filedial.cpp:2221:16: warning: 'AllowCompressionOnlyForHeavyParts' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5925: Vue/Source/Filedial.cpp:2494:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5926: Vue/Source/Filedial.cpp:2737:8: warning: 'UpdatePreviewFromLoadedImage' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5927: Vue/Source/Filedial.cpp:3177:16: warning: 'DoWrite' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5929: Vue/Source/Filedial.cpp:3579:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5930: Vue/Source/Filedial.cpp:3691:14: warning: 'OnOK' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5942: Vue/Source/Filedial.cpp:558:15: warning: 'DynamicInit' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5944: Vue/Source/Filedial.cpp:1358:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5945: Vue/Source/Filedial.cpp:1470:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5946: Vue/Source/Filedial.cpp:1502:14: warning: 'OnOK' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5948: Vue/Source/Filedial.cpp:2221:16: warning: 'AllowCompressionOnlyForHeavyParts' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5951: Vue/Source/Filedial.cpp:2494:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5952: Vue/Source/Filedial.cpp:2737:8: warning: 'UpdatePreviewFromLoadedImage' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5953: Vue/Source/Filedial.cpp:3177:16: warning: 'DoWrite' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5955: Vue/Source/Filedial.cpp:3579:15: warning: 'CreateControls' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5956: Vue/Source/Filedial.cpp:3691:14: warning: 'OnOK' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 5986: Vue/Source/./Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6058: Vue/Source/./Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6423: Vue/Source/./EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6478: Vue/Source/./EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6480: Vue/Source/SplineParameterWidget.cpp:2124:15: warning: 'SetupWindow' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6481: Vue/Source/SplineParameterWidget.cpp:2207:15: warning: 'UpdateDialogAfterResized' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6482: Vue/Source/SplineParameterWidget.cpp:2219:15: warning: 'OnEONCommand' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6483: Vue/Source/SplineParameterWidget.cpp:2298:15: warning: 'OnEONKeyDown' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6484: Vue/Source/SplineParameterWidget.cpp:2356:15: warning: 'OnNew' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6485: Vue/Source/SplineParameterWidget.cpp:2371:15: warning: 'OnLoad' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6486: Vue/Source/SplineParameterWidget.cpp:2386:15: warning: 'OnSave' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6487: Vue/Source/SplineParameterWidget.cpp:2790:15: warning: 'SetupViewpoint' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6488: Vue/Source/SplineParameterWidget.cpp:3765:7: warning: 'UpdateDialogAfterResized' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6557: Vue/Source/SplineParameterWidget.cpp:2124:15: warning: 'SetupWindow' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6558: Vue/Source/SplineParameterWidget.cpp:2207:15: warning: 'UpdateDialogAfterResized' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6559: Vue/Source/SplineParameterWidget.cpp:2219:15: warning: 'OnEONCommand' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6560: Vue/Source/SplineParameterWidget.cpp:2298:15: warning: 'OnEONKeyDown' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6561: Vue/Source/SplineParameterWidget.cpp:2356:15: warning: 'OnNew' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6562: Vue/Source/SplineParameterWidget.cpp:2371:15: warning: 'OnLoad' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6563: Vue/Source/SplineParameterWidget.cpp:2386:15: warning: 'OnSave' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6564: Vue/Source/SplineParameterWidget.cpp:2790:15: warning: 'SetupViewpoint' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6565: Vue/Source/SplineParameterWidget.cpp:3765:7: warning: 'UpdateDialogAfterResized' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6566: Vue/Source/Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6637: Vue/Source/Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6750: Vue/Source/./EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6788: Vue/Source/./Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6825: Vue/Source/./EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6881: Vue/Source/./Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6909: Vue/Source/./EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6918: Vue/Source/./EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6947: Vue/Source/./EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 6952: Vue/Source/./EcosystemPainter/EcoPainterEffectsGUI.h:273:19: warning: 'CreateOptionalControlsAtStartOfParamLine' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7066: Vue/Source/./geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7067: Vue/Source/./geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7068: Vue/Source/./geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7069: Vue/Source/./geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7070: Vue/Source/./geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7071: Vue/Source/./geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7072: Vue/Source/./geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7073: Vue/Source/./geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7074: Vue/Source/./geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7075: Vue/Source/./geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7076: Vue/Source/./geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7077: Vue/Source/./geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7078: Vue/Source/./geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7079: Vue/Source/./geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7080: Vue/Source/./geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7081: Vue/Source/./geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7082: Vue/Source/./geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7083: Vue/Source/./geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7084: Vue/Source/./geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7085: Vue/Source/./geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7086: Vue/Source/./geo/engine/geoImage.h:415:16: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7087: Vue/Source/./geo/engine/geoImage.h:449:18: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7088: Vue/Source/./geo/engine/geoImage.h:464:17: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7089: Vue/Source/./geo/engine/geoImage.h:500:19: warning: 'Clone' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7376: Vue/Source/Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7398: Vue/Source/Engine/VolumeCloud.h:80:26: warning: 'FindNearestIntersection' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7549: Vue/Source/MoverWizard.cpp:1012:19: warning: 'GetGlWnd' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7550: Vue/Source/MoverWizard.cpp:1320:19: warning: 'GetGlWnd' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7551: Vue/Source/MoverWizard.cpp:1805:7: warning: 'OnLButtonDown' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7557: Vue/Source/MoverWizard.cpp:2954:15: warning: 'OnCancel' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7610: Vue/Source/MoverWizard.cpp:1012:19: warning: 'GetGlWnd' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7611: Vue/Source/MoverWizard.cpp:1320:19: warning: 'GetGlWnd' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7612: Vue/Source/MoverWizard.cpp:1805:7: warning: 'OnLButtonDown' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
-Line 7618: Vue/Source/MoverWizard.cpp:2954:15: warning: 'OnCancel' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+virtual VUEFunctionNode *DoClone() const
+		{
+			return new VUEDoubleAndColorOutput(*this);
+		}
+	
+		virtual std::unique_ptr<VUEExecFunctionBase> DoCompile(
+			size_t /*nOut*/, const std::vector<VUEExecFunctionBase *> inputs) const
+		{
+			EON_ASSERT(1 == inputs.size());
+			
+			if (FRT_Double == inputs[0]->ReturnType())
+				return std::unique_ptr<VUEExecFunctionBase>(
+					new VUEDoubleAndColorOutputExec<double>(inputs, ID()));
+			EON_ASSERT(FRT_Color == inputs[0]->ReturnType());
+			return std::unique_ptr<VUEExecFunctionBase>(
+				new VUEDoubleAndColorOutputExec<CLRFLOAT>(inputs, ID()));
+		}
+
+		bool DoIsCorrectOutput(size_t /*nOutput*/) const	EON_OVERRIDE	{	return false;	}
+	};
+
+	template <typename T>
+	struct OutputFunc
+	{
+		T operator()(const T &t) const {return t;}
+	};
+
+	template <typename T>
+	struct OutputFuncP
+	{
+		T operator()(const T &t) const {return t;}
+		void Parameters(int) {}
+	};
+
+	template <typename T>
+	struct InputFuncP
+	{
+		T operator()(VUEFunctionInputComputer *input) const
+		{
+ 			return input->NumberedInputValue(Loki::Type2Type<T>(), inputNum_);
+		}
+
+		void Parameters(int inputNum)
+		{
+			if (inputNum < 0)
+				inputNum_ = -inputNum - 1;
+			else
+				inputNum_ = inputNum;
+		}
+
+		int inputNum_;
+	};
+
+	class VUECustomDependencyNode : public VUEFunctionNode
+	{
+	public:
+		VUECustomDependencyNode(NodeID::NodeID id) :
+			VUEFunctionNode(id, 1, 3, 1),
+			retType_(static_cast<EFunctionReturnType>(
+						 FRT_Color | FRT_Double | FRT_Vector3 | FRT_Vector2))
+		{
+			Name(STR_FunctionCustomDependency);
+		}
+
+	private:
+		size_t DoCountInputs() const EON_OVERRIDE
+		{
+			return 1;
+		}
+	
+		size_t DoCountOutputs() const EON_OVERRIDE
+		{
+			return 1;
+		}
+		
+		EFunctionReturnType DoAcceptedTypes(
+			size_t nInput, VisitedList &visited) const EON_OVERRIDE
+		{
+			retType_ =
+				static_cast<EFunctionReturnType>(
+					retType_ &
+					VUEFunctionNode::DoAcceptedTypes(nInput, visited));
+			
+			return retType_;
+		}
+
+		EFunctionReturnType DoReturnTypes(
+			size_t /*nOutput*/, VisitedList &/*visited*/) const EON_OVERRIDE
+		{
+			if (retType_ == FRT_All)
+				retType_ = AcceptedTypes(0);
+
+			// We don't want to return a retType_ with more than one type.
+			if (retType_ & FRT_Double)
+				return FRT_Double;
+			if (retType_ & FRT_Vector3)
+				return FRT_Vector3;
+			if (retType_ & FRT_Color)
+				return FRT_Color;
+			if (retType_ & FRT_Vector2)
+				return FRT_Vector2;
+			
+			return retType_;
+		}
+		
+		virtual VUEFunctionNode *DoClone() const
+		{
+			return new VUECustomDependencyNode(*this);
+		}
+	
+		virtual std::unique_ptr<VUEExecFunctionBase> DoCompile(
+			size_t /*nOut*/, const std::vector<VUEExecFunctionBase *> inputs) const
+		{
+			std::unique_ptr<VUEExecFunctionBase> ret;
+
+			EFunctionReturnType types(AcceptedTypes(0));
+
+			if (types & FRT_Double)
+				ret.reset(new VUEIdOutputExec<double>(inputs, ID()));
+			else if (types & FRT_Color)
+				ret.reset(new VUEIdOutputExec<CLRFLOAT>(inputs, ID()));
+			else if (types & FRT_Vector3)
+				ret.reset(new VUEIdOutputExec<VECTEURDX>(inputs, ID()));
+			else if (types & FRT_Vector2)
+				ret.reset(new VUEIdOutputExec<Vector2>(inputs, ID()));
+			
+			return ret;
+		}
+
+		bool DoIsCorrectOutput(size_t /*nOutput*/) const	EON_OVERRIDE	{	return false;	}
+
+		mutable EFunctionReturnType retType_;
+	};
+
+	class VUEVegOutputNode : public VUEFunctionNode
+	{
+	public:
+		VUEVegOutputNode()
+		:	VUEFunctionNode(NodeID::NID_OUTPUT_VEGETATION, 1, 3, 1)
+		{
+			Name(STR_FunctionVegetationOutput);
+		}
+
+	private:
+		size_t DoCountInputs() const EON_OVERRIDE
+		{
+			return 1;
+		}
+
+		size_t DoCountOutputs() const EON_OVERRIDE
+		{
+			return 1;
+		}
+
+		EFunctionReturnType DoAcceptedTypes(
+			size_t /*nInput*/, VisitedList &/*visited*/) const EON_OVERRIDE
+		{
+			return FRT_Veg;
+		}
+
+		EFunctionReturnType DoReturnTypes(
+			size_t /*nOutput*/, VisitedList &/*visited*/) const EON_OVERRIDE
+		{
+			return FRT_Veg;
+		}
+
+		virtual VUEFunctionNode *DoClone() const
+		{
+			return new VUEVegOutputNode(*this);
+		}
+
+		virtual std::unique_ptr<VUEExecFunctionBase> DoCompile(
+			size_t /*nOut*/, const std::vector<VUEExecFunctionBase *> inputs) const
+		{
+//			EON_ASSERT(false);
+			std::unique_ptr<VUEExecFunctionBase> ret;
+			ret.reset(new VUEIdOutputExec<double>(inputs, ID()));
+			return ret;
+		}
+
+		bool DoIsCorrectOutput(size_t /*nOutput*/) const	EON_OVERRIDE	{	return false;	}
+	};
+
+	template <typename Func, typename ReturnType,
+		typename argTypes, typename ParamTypes = Loki::NullType,
+		bool CallFunctionTLValue = false,
+		bool CallParamsTLValue = CallFunctionTLValue,
+		typename Inputsadapter = VUENullInputsadapter,
+		typename adaptedargTypes = argTypes,
+		bool InfiniteInputs = false>
+	class VUEFunctionOutputNodeAdapter : public VUEFunctionAdapter<Func, ReturnType, argTypes, ParamTypes, CallFunctionTLValue, CallParamsTLValue, Inputsadapter, adaptedargTypes, InfiniteInputs>
+	{
+	public:
+		VUEFunctionOutputNodeAdapter(NodeID::NodeID nodeID, const Func &func, const EONResourceString &funName, const std::vector<VUEFunctionParameter *> *params = 0,
+			const std::vector<VUEInputDesc> *inputs = 0, const std::vector<EONResourceString> *outputs = 0, const VUEWidgetPlacement *placement = 0,
+			const Inputsadapter *adapter = 0, int nNodeWidth = 0, int nNodeHeight = 0)
+			:	VUEFunctionAdapter<Func, ReturnType, argTypes, ParamTypes, CallFunctionTLValue, CallParamsTLValue, Inputsadapter, adaptedargTypes, InfiniteInputs>(nodeID, func, funName, params, inputs, outputs, placement, adapter, nNodeWidth, nNodeHeight)
+		{
+		}
+
+	protected:
+		bool DoIsCorrectOutput(size_t /*nOutput*/) const	EON_OVERRIDE	{	return false;	}
+		VUEFunctionNode *DoClone() const	EON_OVERRIDE	{	return new VUEFunctionOutputNodeAdapter(*this);	}
+	};
+
+	struct RegOutputs
+	{
+		RegOutputs()
+			{
+				RegOutput<double>(NodeID::NID_OUTPUT_TRANSPARENCY, 
+								STR_FunctionTransparency);
+				RegOutput<double>(NodeID::NID_OUTPUT_BUMP, 
+								STR_FunctionBump);
+				RegOutput<double>(NodeID::NID_OUTPUT_ALTITUDE,
+								STR_FunctionAltitude);
+				RegOutput<double>(NodeID::NID_OUTPUT_BRILLANCE,
+								STR_FunctionBrillance);
+				RegOutput<double>(NodeID::NID_OUTPUT_REFLECTION,
+								STR_FunctionReflection);
+				RegOutput<double>(NodeID::NID_OUTPUT_LARG_COUL,
+								STR_FunctionLargCoul);
+				RegOutput<double>(NodeID::NID_OUTPUT_ECOSYSTEM_SIZE,
+								STR_FunctionEcosystemSize);
+				RegOutput<double>(NodeID::NID_OUTPUT_DEFAULT, 
+								STR_Output);
+				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_HIGHLIGHT_COLOR,
+								STR_HighlightColor);
+
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_HIGHLIGHT_SIZE,
+								  STR_HighlightSize);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_BLURRED_TRANSPARENCIES,
+					STR_BlurredTransparencies, 0, 20, 
+					&outputMap::BlurredMapping, 
+					&outputMap::BlurredInvertMapping);
+				RegOutputRange(NodeID::NID_OUTPUT_REFRACTION_INDEX,
+								  STR_RefractionIndex, 0.5, 2);
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_FLARE_INTENSITY,
+												STR_FlareIntensity, 0, 0.01*255*8);
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_FLARE_SPAN,
+												STR_FlareSpan, 1, 0);
+				RegOutput<double>(NodeID::NID_OUTPUT_FADING_OUT,
+								  STR_FadingOut);
+				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_FADE_OUT_COLOR,
+								  STR_FadeOutColor);
+				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_FADE_LIGHT_COLOR,
+								  STR_FadeLightColor);
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_TURN_REFLECTIVE_WITH_ANGLE,
+												STR_TurnReflectiveWithAngle, 0, 10);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_BLURRED_REFLECTIONS,
+											STR_BlurredReflections, 0, 20, 
+											&outputMap::BlurredMapping, 
+											&outputMap::BlurredInvertMapping);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_DIFFUSE, STR_Diffuse);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_AMBIENT, STR_Ambient);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_LUMINOUS, STR_Luminous);
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_CONTRAST,
+											STR_Contrast, 0.9, 0.01);
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_GLOW_INTENSITY,
+											STR_GlowIntensity, 0, 0.5);
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_GLOW_RADIUS,
+											STR_GlowRadius, 0, 10);
+				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_ORIGIN,
+								  STR_Origin);
+				RegOutput<double>(NodeID::NID_OUTPUT_SMOOTH_BLENDING_STRIP,
+								  STR_SmoothBlendingStrip);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_INFLUENCE_ALTITUDE,
+								  STR_InfluenceAltitude);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_INFLUENCE_SLOPE,
+											STR_InfluenceSlope);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_INFLUENCE_ORIENTATION,
+											STR_InfluenceOrientation);
+				RegOutput<double>(NodeID::NID_OUTPUT_VOLUMETRIC_DENSITY,
+								  STR_VolumetricDensity);
+				RegOutput<double>(NodeID::NID_OUTPUT_VOLUMETRIC_FUZZINESS,
+								  STR_VolumetricFuzziness);
+				
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ANISOTROPIC_HIGHLIGHTING,
+											STR_AnisotropicHighlighting, 0, 100, 
+											&outputMap::AnisotropicMapping, 
+											&outputMap::AnisotropicInvertMapping);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_GLOBAL_TRANSPARENCY,
+											STR_GlobalTransparency);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_GLOBAL_REFLECTIVITY,
+											STR_GlobalReflectivity);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_HIGHLIGHT_INTENSITY,
+											STR_HighlightIntensity);
+
+				VUENodeFactory::Instance().RegisterNode(
+					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+						new VUEDoubleAndColorOutput(
+							NodeID::NID_OUTPUT_COLOR,
+							STR_FunctionColor)));
+
+				VUENodeFactory::Instance().RegisterNode(
+					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+						new VUEDoubleAndColorOutput(
+							NodeID::NID_OUTPUT_COLOR_COMPATIBILITY,
+							STR_FunctionColor)));
+				VUENodeFactory::Instance().RegisterNode(
+					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+						new VUEDoubleAndColorOutput(
+							NodeID::NID_OUTPUT_COLOR_REFLECTED,
+							STR_ColorReflected)));
+				VUENodeFactory::Instance().RegisterNode(
+					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+						new VUEDoubleAndColorOutput(
+							NodeID::NID_OUTPUT_COLOR_TRANSMITTED,
+							STR_ColorTransmitted)));
+				VUENodeFactory::Instance().RegisterNode(
+					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+						new VUEDoubleAndColorOutput(
+							NodeID::NID_OUTPUT_COLOR_BACKLIGHT,
+							STR_ColorBacklight)));
+				
+				// EcoSystem Material outputs.
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_TIGHTNESS,
+								  STR_Tightness);
+				RegOutputRange(NodeID::NID_OUTPUT_ECO_OFFSET_FROM_SURFACE,
+								  STR_OffsetFromSurface, -100, 100);
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_ECO_DECAY_INFLUENCE,
+											STR_DecayInfluence, 0, 100);
+#ifdef VUE_REAL_UNITS_IN_POPULATOR
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_DECAY_FALLOFF,
+											STR_DecayDistanceHalfDensity);
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_DECAY_FALLOFF_DISTANCE,
+								STR_DecayDistance);
+#else //VUE_REAL_UNITS_IN_POPULATOR
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_DECAY_FALLOFF,
+															STR_DecayFalloff, 0, 100, 
+															&outputMap::FalloffMapping, 
+															&outputMap::FalloffInvertMapping);
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_DECAY_FALLOFF_DISTANCE,
+					STR_DecayFalloff);
+#endif //VUE_REAL_UNITS_IN_POPULATOR
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_DIRECTION_FROM_SURFACE,
+											STR_DirectionFromSurface);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_ROTATION,
+											STR_Rotation, 0, 180);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_SHRINK_INFLUENCE,
+											STR_ShrinkInfluence);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_SHRINK_RADIUS,
+											STR_ShrinkRadius);
+#ifdef VUE_REAL_UNITS_IN_POPULATOR
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_SHRINK_FALLOFF,
+											STR_ShrinkFalloff);
+#else //VUE_REAL_UNITS_IN_POPULATOR
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_SHRINK_FALLOFF,
+															STR_ShrinkFalloff, 0, 100, 
+															&outputMap::FalloffMapping, 
+															&outputMap::FalloffInvertMapping);
+#endif //VUE_REAL_UNITS_IN_POPULATOR
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_COLOR_INFLUENCE,
+											STR_ColorInfluence);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_COLOR_RADIUS,
+											STR_ColorRadius);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_COLOR_FALLOFF,
+											STR_ColorFalloff, 0, 100, 
+											&outputMap::FalloffMapping, 
+											&outputMap::FalloffInvertMapping);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_VARIABLE_COLOR_SENSITIVITY,
+											STR_VariableColorSensitivity);
+				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_ECO_COLOR_DECAY_COLOR,
+											STR_DecayColor);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_DISTRIBUTION,
+											STR_Distribution);
+
+				RegOutputRange(NodeID::NID_OUTPUT_ECO_VARIABLE_TIME_OFFSET,
+											STR_FunctionTimeOffset, -1.0, 1.0);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_LEANOUT_AT_LOW_DENSITY_INFLUENCE,
+											STR_EcoLeanOutInfluence);
+
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_NEAR_AZIMUTH,
+											STR_Azimuth, 0, 360);
+				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_HIGHLIGHT_VALUE,
+									STR_HighlightValue);
+				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_DISPERSION,
+								  STR_Dispersion);
+				RegOutput<double>(NodeID::NID_OUTPUT_ALPHA, STR_Alpha);
+				RegOutput<double>(NodeID::NID_OUTPUT_ENVIRONMENT_ATTENUATION, STR_AlphaEnvironmentAttenuation);
+				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_VECTEUR3, 
+								STR_FunctionVector3Output);
+				RegOutput<Vector2>(NodeID::NID_OUTPUT_VECTEUR2, 
+								STR_FunctionVector2Output);
+				RegOutput<double>(NodeID::NID_OUTPUT_DOUBLE, 
+								STR_FunctionDoubleOutput);
+				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_CLR, 
+								STR_FunctionColorOutput);
+				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_DISPLACEMENT_DIRECTION,
+								STR_DisplacementDirection);
+				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_NORMAL_MAP, 
+								STR_NormalMapping);
+				RegOutput<double>(NodeID::NID_OUTPUT_DISPLACEMENT, STR_Displacement);
+
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SCALE, STR_PhysicScale );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_DENSITY, STR_PhysicDensity );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_DRAG_COEFF, STR_PhysicDragCoeff );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_FRICTION, STR_PhysicFriction );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_ELASTICITY, STR_PhysicElasticity );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_LIFE_DURATION, STR_PhysicLifeTime );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_UNSTICK_FORCE_AMPLITUDE, STR_PhysicLifeTime );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_LIFE_VARIATION_BEGIN, STR_PhysicSizeLifeVariationBegin );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_LIFE_VARIATION_END, STR_PhysicSizeLifeVariationEnd );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_LIFE_VARIATION_COEFF, STR_PhysicSizeLifeVariationCoeff );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_ALTITUDE_VARIATION_BEGIN, STR_PhysicSizeAltitudeVariationBegin );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_ALTITUDE_VARIATION_END, STR_PhysicSizeAltitudeVariationEnd );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_ALTITUDE_VARIATION_COEFF, STR_PhysicSizeAltitudeVariationCoeff );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_ALPHA_VARIATION_BEGIN, STR_PhysicAlphaVariationBegin );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_ALPHA_VARIATION_END, STR_PhysicAlphaVariationEnd );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_ALPHA_VARIATION_COEFF, STR_PhysicAlphaVariationCoeff );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_COLOR_VARIATION_BEGIN, STR_PhysicColorVariationBegin );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_COLOR_VARIATION_END, STR_PhysicColorVariationEnd );
+
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_LOCAL_EMISSION_COUNT, STR_PhysicLocalEmissionCount );
+				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_ECO_PHYSIC_LOCAL_EMISSION_VELOCITY, STR_PhysicLocalEmissionVelocity );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_LOCAL_EMISSION_FLOW, STR_PhysicLocalEmissionPeriod );
+				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_ECO_PHYSIC_ROOT_EMISSION_VELOCITY, STR_PhysicRootEmissionVelocityAmplitude );
+				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_ROOT_EMISSION_FLOW, STR_PhysicRootEmissionFlow );
+
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_ALTITUDE_OFFSET, STR_AltitudeOffset, 0, 100);
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_ALTITUDE_OFFSET_EFFECT_ON_Z, STR_AltOffEffectOnZ, 0, 100);
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_HEIGHT_MODULATION, STR_HeightModulation, 0, 100);
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_DENSITY_MODULATION, STR_DensityModulation, 0, 100);
+				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_SHARPNESS_MODULATION, STR_SharpnessModulation, 0, 100);
+				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_VOLUMETRIC_COLOR_MODULATION, STR_VolumetricColorModulation );
+				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_SKY_AMBIENT_COLOR_MODULATION, STR_SkyAmbienColorModulation );
+				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_SUN_AMBIENT_COLOR_MODULATION, STR_SunAmbienColorModulation );
+
+				RegOutput<double>(NodeID::NID_OUTPUT_SSS_DEPTH_MODULATION, STR_SSSDepthModulation);
+				
+				RegInputID<VECTEURDX>(
+					NodeID::NID_LEAF_VECTEUR3_INPUT, STR_FunctionVector3Input);
+				RegInputID<Vector2>(
+					NodeID::NID_LEAF_VECTEUR2_INPUT, STR_FunctionVector2Input);
+				RegInputID<double>(
+					NodeID::NID_LEAF_DOUBLE_INPUT, STR_FunctionDoubleInput);
+				RegInputID<CLRFLOAT>(
+					NodeID::NID_LEAF_COLOR_INPUT, STR_FunctionColorInput);
+
+				RegOutputUnit(NodeID::NID_OUTPUT_POSITION,
+						   STR_FunctionPosition,
+						   STR_WorldParentObjectParametric);
+
+				VUENodeFactory::Instance().RegisterNode(
+					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+						new VUEFunctionOutputNodeAdapter<
+						OutputFuncP<VECTEURDX>, VECTEURDX, TYPELIST_1(VECTEURDX),
+						TYPELIST_1(bool)>(
+							NodeID::NID_OUTPUT_ORIENTATION,
+							OutputFuncP<VECTEURDX>(), STR_FunctionOrientation,
+							BoolParameter(STR_FunctionRelativeToParent, false),
+							0, 0, 0, 0, 3, 1)));
+
+				VUENodeFactory::Instance().RegisterNode(
+					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+						new VUEFunctionOutputNodeAdapter<
+						OutputFuncP<VECTEURDX>, VECTEURDX, TYPELIST_1(VECTEURDX),
+						TYPELIST_3(bool, bool, int)>(
+							NodeID::NID_OUTPUT_SIZE,
+							OutputFuncP<VECTEURDX>(), STR_FunctionSize,
+							BoolParameter(STR_FunctionRelativeToParent, false) +
+							BoolParameter(STR_FunctionTrueDimension, false) +
+							EnumParameter(STR_FunctionUnitLength, GetUnitLengthListIDForThisApp(), 1),
+							0, 0,
+							&VUEWidgetPlacement().Manager(
+								new OutputSizeWidgetManager()), 0, 3, 1)));
+
+				VUENodeFactory::Instance().RegisterNode(
+					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+						new VUEFunctionOutputNodeAdapter<
+						OutputFuncP<VECTEURDX>, VECTEURDX, TYPELIST_1(VECTEURDX),
+						TYPELIST_1(bool)>(
+							NodeID::NID_OUTPUT_PIVOT_OFFSET,
+							OutputFuncP<VECTEURDX>(), STR_PivotOffset,
+							BoolParameter(STR_FunctionRelativeToParent, false),
+							0, 0, 0, 0, 3, 1)));
+
+				VUENodeFactory::Instance().RegisterNode(
+					CustomDependencyCategory(), std::unique_ptr<VUEFunctionNode>(
+						new VUECustomDependencyNode(
+							NodeID::NID_CUSTOM_DEPENDENCY)));
+
+				VUENodeFactory::Instance().RegisterNode(
+					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+						new VUECustomDependencyNode(
+							NodeID::NID_OUTPUT_CUSTOM_DEPENDENCY)));
+
+				//VUENodeFactory::Instance().RegisterNode(
+				//	OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+				//		new VUEObjectPropertyNode));
+				
+				// Outputs used in mesh morphing graphs for Vue 10 stones: since
+				// the feature is only used internally in recipes, these outputs
+				// do not show up in the menus on regular builds, hence strings
+				// do not need to be translated.
+				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_DEFORMER, _L("Morphed position"));
+				RegOutput<double>(NodeID::NID_OUTPUT_DEFORMER_RESERVED1,
+					_L("Morph Custom 1 = Surface Roughness (rem. from ISD!)"));
+				RegOutput<double>(NodeID::NID_OUTPUT_DEFORMER_RESERVED2,
+					_L("Morph Custom 2 = Rock Hardness"));
+				RegOutput<double>(
+					NodeID::NID_OUTPUT_DEFORMER_RESERVED3,
+					_L("Morph Custom 3 = Subtracted Function"));
+				RegOutput<double>(
+					NodeID::NID_OUTPUT_DEFORMER_RESERVED4, _L("Morph Custom 4"));
+				RegOutput<double>(
+					NodeID::NID_OUTPUT_DEFORMER_RESERVED5, _L("Morph Custom 5"));
+				RegOutput<double>(
+					NodeID::NID_OUTPUT_DEFORMER_RESERVED6, _L("Morph Custom 6"));
+				RegOutput<double>(
+					NodeID::NID_OUTPUT_DEFORMER_RESERVED7, _L("Morph Custom 7"));
+				RegOutput<double>(
+					NodeID::NID_OUTPUT_DEFORMER_RESERVED8, _L("Morph Custom 8"));
+
+				VUENodeFactory::Instance().RegisterNode(
+					OutputsCategory(), 
+					std::unique_ptr<VUEFunctionNode>(new VUEVegOutputNode()));
+			}
+		
+		template <typename T>
+		void RegOutput(NodeID::NodeID id, const EONResourceString &name)
+		{
+			VUENodeFactory::Instance().RegisterNode(
+				OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+					new VUEFunctionOutputNodeAdapter<
+					OutputFunc<T>, T, TYPELIST_1(T)>(
+						id, OutputFunc<T>(), name, 0, 0, 0, 0, 0, 3, 1)));
+		}
+
+		void RegOutputRange(NodeID::NodeID id, const EONResourceString &name,
+			double min, double max)
+		{
+			VUENodeFactory::Instance().RegisterNode(
+				OutputsRangeCategory(), std::unique_ptr<VUEFunctionNode>(
+				new VUEFunctionOutputNodeAdapter<
+				OutputFuncP<double>, double, TYPELIST_1(double), TYPELIST_1(int)>(
+				id, OutputFuncP<double>(), name, 
+				EnumParameter(STR_FunctionMappingMode, STRLIST_FunctionMappingModeList, 0),
+				0, 0, 0, 0, 3, 1)));
+			VUENodeFactory::Instance().SetOutputRange(id, Vector2(min, max));
+		}
+
+		void RegOutputRangeWithMapping(NodeID::NodeID id, const EONResourceString &name, 
+										double min = 0, double max = 100)
+		{
+			RegOutputRangeWithMapping(id, name, min, max, 
+				boost::bind(&outputMap::SimpleMapping, min, max, _1),
+				boost::bind(&outputMap::SimpleInvertMapping, min, max, _1));
+		}
+
+		void RegOutputRangeWithMappingPerCent(NodeID::NodeID id,
+			const EONResourceString &name, double min = 0, double max = 1)
+		{
+			RegOutputRangeWithMapping(id, name, 0, 100,
+				boost::bind(&outputMap::SimplePerCentMapping, min, max, _1),
+				boost::bind(&outputMap::SimplePerCentInvertMapping, min, max, _1));
+		}
+
+		void RegOutputRangeWithMapping(NodeID::NodeID id, const EONResourceString &name, 
+							double min, double max,
+							const VUENodeFactory::OutputMappingFunc &mapping,
+							const VUENodeFactory::OutputMappingFunc &invert)
+		{
+			RegOutputRange(id, name, min, max);
+			VUENodeFactory::Instance().SetOutputMappingFunc(id, mapping, invert);
+		}
+
+
+		void RegOutputUnit(NodeID::NodeID id, const EONResourceString &name,
+						const EONResourceStringArray &enums)
+		{
+			VUENodeFactory::Instance().RegisterNode(
+				OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
+					new VUEFunctionOutputNodeAdapter<
+					OutputFuncP<VECTEURDX>, VECTEURDX, TYPELIST_1(VECTEURDX),
+					TYPELIST_2(int, int)>(
+						id, OutputFuncP<VECTEURDX>(), name,
+						EnumParameter(STR_PositionKind, enums) +
+						EnumParameter(
+							STR_FunctionUnitLength, GetUnitLengthListIDForThisApp(), 1),
+						0, 0, &VUEWidgetPlacement().Manager(new PositionExtWidgetManager()),
+						0, 3, 1)));
+		}
+
+		template <typename T>
+		void RegInputID(NodeID::NodeID id, const EONResourceString &name)
+		{
+			VUENodeFactory::Instance().RegisterNode(
+				LeavesCategory(), std::unique_ptr<VUEFunctionNode>(
+					new VUEFunctionAdapter<
+					InputFuncP<T>, T, TYPELIST_1(VUEFunctionInputComputer *),
+					TYPELIST_1(int)>(
+						id, InputFuncP<T>(), name,
+						EnumParameter(_L(""), _L("")),
+						0, 0, 0, 0, 3, 1)));
+		}
+	};
+
+	bool bOutputsRegistered_ = false;
+	
+	void RegisterOutputs()
+	{
+		bOutputsRegistered_ = true;
+		RegOutputs regOutputs;
+	}
+
+	struct MyReg
+	{
+		MyReg()
+		{
+			if (!bOutputsRegistered_)
+				RegisterOutputs();
+		}
+	};
+
+	MyReg reg_;
+}
+
+EON_GRAPH_LINK void EnsureOutputsRegistered()
+{
+	if (!bOutputsRegistered_)
+		RegisterOutputs();
+}
+
+EON_GRAPH_LINK int GetUnitLengthListIDForThisApp()
+{
+#ifdef CARBON_SCATTER
+	return STRLIST_FunctionUnitLengthListCS;
+#else
+	return STRLIST_FunctionUnitLengthListVue;
+#endif
+}
+
+
+EON_GRAPH_LINK bool IsOutputNode(NodeID::NodeID nodeID)
+{
+	return (nodeID == NodeID::NID_OUTPUT_VECTEUR3 ||
+		nodeID == NodeID::NID_OUTPUT_VECTEUR2 ||
+		nodeID == NodeID::NID_OUTPUT_DOUBLE ||
+		nodeID == NodeID::NID_OUTPUT_CLR ||
+		nodeID == NodeID::NID_OUTPUT_VEGETATION);
+}
+
+EON_GRAPH_LINK bool IsInputNode(NodeID::NodeID nodeID)
+{
+	return (nodeID == NodeID::NID_LEAF_VECTEUR3_INPUT ||
+		nodeID == NodeID::NID_LEAF_VECTEUR2_INPUT ||
+		nodeID == NodeID::NID_LEAF_DOUBLE_INPUT ||
+		nodeID == NodeID::NID_LEAF_COLOR_INPUT ||
+		nodeID == NodeID::NID_VEGETATION_ROOT);
+}
+
