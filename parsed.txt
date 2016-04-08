@@ -1,26 +1,5 @@
-atm
-csbb
-cld
-clr
-flt
-fnc
-lob
-mat
-mod
-mpf
-npr
-prv
-prt
-psg
-sto
-sty
-tpf
-tpfe
-tpfp
-tpfs
-txs
-veg
-vim
-vob
-vom
-.vue
+
+		void FlipControl() EON_OVERRIDE
+		{
+			SetControlPos(rcControl.top, rcControl.left, rcControl.Height(), rcControl.Width());
+		} //turn the control from vertic to horizon and vice-versa
