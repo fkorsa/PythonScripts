@@ -1,651 +1,414 @@
-virtual VUEFunctionNode *DoClone() const
-		{
-			return new VUEDoubleAndColorOutput(*this);
-		}
-	
-		virtual std::unique_ptr<VUEExecFunctionBase> DoCompile(
-			size_t /*nOut*/, const std::vector<VUEExecFunctionBase *> inputs) const
-		{
-			EON_ASSERT(1 == inputs.size());
-			
-			if (FRT_Double == inputs[0]->ReturnType())
-				return std::unique_ptr<VUEExecFunctionBase>(
-					new VUEDoubleAndColorOutputExec<double>(inputs, ID()));
-			EON_ASSERT(FRT_Color == inputs[0]->ReturnType());
-			return std::unique_ptr<VUEExecFunctionBase>(
-				new VUEDoubleAndColorOutputExec<CLRFLOAT>(inputs, ID()));
-		}
-
-		bool DoIsCorrectOutput(size_t /*nOutput*/) const	EON_OVERRIDE	{	return false;	}
-	};
-
-	template <typename T>
-	struct OutputFunc
-	{
-		T operator()(const T &t) const {return t;}
-	};
-
-	template <typename T>
-	struct OutputFuncP
-	{
-		T operator()(const T &t) const {return t;}
-		void Parameters(int) {}
-	};
-
-	template <typename T>
-	struct InputFuncP
-	{
-		T operator()(VUEFunctionInputComputer *input) const
-		{
- 			return input->NumberedInputValue(Loki::Type2Type<T>(), inputNum_);
-		}
-
-		void Parameters(int inputNum)
-		{
-			if (inputNum < 0)
-				inputNum_ = -inputNum - 1;
-			else
-				inputNum_ = inputNum;
-		}
-
-		int inputNum_;
-	};
-
-	class VUECustomDependencyNode : public VUEFunctionNode
-	{
-	public:
-		VUECustomDependencyNode(NodeID::NodeID id) :
-			VUEFunctionNode(id, 1, 3, 1),
-			retType_(static_cast<EFunctionReturnType>(
-						 FRT_Color | FRT_Double | FRT_Vector3 | FRT_Vector2))
-		{
-			Name(STR_FunctionCustomDependency);
-		}
-
-	private:
-		size_t DoCountInputs() const EON_OVERRIDE
-		{
-			return 1;
-		}
-	
-		size_t DoCountOutputs() const EON_OVERRIDE
-		{
-			return 1;
-		}
-		
-		EFunctionReturnType DoAcceptedTypes(
-			size_t nInput, VisitedList &visited) const EON_OVERRIDE
-		{
-			retType_ =
-				static_cast<EFunctionReturnType>(
-					retType_ &
-					VUEFunctionNode::DoAcceptedTypes(nInput, visited));
-			
-			return retType_;
-		}
-
-		EFunctionReturnType DoReturnTypes(
-			size_t /*nOutput*/, VisitedList &/*visited*/) const EON_OVERRIDE
-		{
-			if (retType_ == FRT_All)
-				retType_ = AcceptedTypes(0);
-
-			// We don't want to return a retType_ with more than one type.
-			if (retType_ & FRT_Double)
-				return FRT_Double;
-			if (retType_ & FRT_Vector3)
-				return FRT_Vector3;
-			if (retType_ & FRT_Color)
-				return FRT_Color;
-			if (retType_ & FRT_Vector2)
-				return FRT_Vector2;
-			
-			return retType_;
-		}
-		
-		virtual VUEFunctionNode *DoClone() const
-		{
-			return new VUECustomDependencyNode(*this);
-		}
-	
-		virtual std::unique_ptr<VUEExecFunctionBase> DoCompile(
-			size_t /*nOut*/, const std::vector<VUEExecFunctionBase *> inputs) const
-		{
-			std::unique_ptr<VUEExecFunctionBase> ret;
-
-			EFunctionReturnType types(AcceptedTypes(0));
-
-			if (types & FRT_Double)
-				ret.reset(new VUEIdOutputExec<double>(inputs, ID()));
-			else if (types & FRT_Color)
-				ret.reset(new VUEIdOutputExec<CLRFLOAT>(inputs, ID()));
-			else if (types & FRT_Vector3)
-				ret.reset(new VUEIdOutputExec<VECTEURDX>(inputs, ID()));
-			else if (types & FRT_Vector2)
-				ret.reset(new VUEIdOutputExec<Vector2>(inputs, ID()));
-			
-			return ret;
-		}
-
-		bool DoIsCorrectOutput(size_t /*nOutput*/) const	EON_OVERRIDE	{	return false;	}
-
-		mutable EFunctionReturnType retType_;
-	};
-
-	class VUEVegOutputNode : public VUEFunctionNode
-	{
-	public:
-		VUEVegOutputNode()
-		:	VUEFunctionNode(NodeID::NID_OUTPUT_VEGETATION, 1, 3, 1)
-		{
-			Name(STR_FunctionVegetationOutput);
-		}
-
-	private:
-		size_t DoCountInputs() const EON_OVERRIDE
-		{
-			return 1;
-		}
-
-		size_t DoCountOutputs() const EON_OVERRIDE
-		{
-			return 1;
-		}
-
-		EFunctionReturnType DoAcceptedTypes(
-			size_t /*nInput*/, VisitedList &/*visited*/) const EON_OVERRIDE
-		{
-			return FRT_Veg;
-		}
-
-		EFunctionReturnType DoReturnTypes(
-			size_t /*nOutput*/, VisitedList &/*visited*/) const EON_OVERRIDE
-		{
-			return FRT_Veg;
-		}
-
-		virtual VUEFunctionNode *DoClone() const
-		{
-			return new VUEVegOutputNode(*this);
-		}
-
-		virtual std::unique_ptr<VUEExecFunctionBase> DoCompile(
-			size_t /*nOut*/, const std::vector<VUEExecFunctionBase *> inputs) const
-		{
-//			EON_ASSERT(false);
-			std::unique_ptr<VUEExecFunctionBase> ret;
-			ret.reset(new VUEIdOutputExec<double>(inputs, ID()));
-			return ret;
-		}
-
-		bool DoIsCorrectOutput(size_t /*nOutput*/) const	EON_OVERRIDE	{	return false;	}
-	};
-
-	template <typename Func, typename ReturnType,
-		typename argTypes, typename ParamTypes = Loki::NullType,
-		bool CallFunctionTLValue = false,
-		bool CallParamsTLValue = CallFunctionTLValue,
-		typename Inputsadapter = VUENullInputsadapter,
-		typename adaptedargTypes = argTypes,
-		bool InfiniteInputs = false>
-	class VUEFunctionOutputNodeAdapter : public VUEFunctionAdapter<Func, ReturnType, argTypes, ParamTypes, CallFunctionTLValue, CallParamsTLValue, Inputsadapter, adaptedargTypes, InfiniteInputs>
-	{
-	public:
-		VUEFunctionOutputNodeAdapter(NodeID::NodeID nodeID, const Func &func, const EONResourceString &funName, const std::vector<VUEFunctionParameter *> *params = 0,
-			const std::vector<VUEInputDesc> *inputs = 0, const std::vector<EONResourceString> *outputs = 0, const VUEWidgetPlacement *placement = 0,
-			const Inputsadapter *adapter = 0, int nNodeWidth = 0, int nNodeHeight = 0)
-			:	VUEFunctionAdapter<Func, ReturnType, argTypes, ParamTypes, CallFunctionTLValue, CallParamsTLValue, Inputsadapter, adaptedargTypes, InfiniteInputs>(nodeID, func, funName, params, inputs, outputs, placement, adapter, nNodeWidth, nNodeHeight)
-		{
-		}
-
-	protected:
-		bool DoIsCorrectOutput(size_t /*nOutput*/) const	EON_OVERRIDE	{	return false;	}
-		VUEFunctionNode *DoClone() const	EON_OVERRIDE	{	return new VUEFunctionOutputNodeAdapter(*this);	}
-	};
-
-	struct RegOutputs
-	{
-		RegOutputs()
-			{
-				RegOutput<double>(NodeID::NID_OUTPUT_TRANSPARENCY, 
-								STR_FunctionTransparency);
-				RegOutput<double>(NodeID::NID_OUTPUT_BUMP, 
-								STR_FunctionBump);
-				RegOutput<double>(NodeID::NID_OUTPUT_ALTITUDE,
-								STR_FunctionAltitude);
-				RegOutput<double>(NodeID::NID_OUTPUT_BRILLANCE,
-								STR_FunctionBrillance);
-				RegOutput<double>(NodeID::NID_OUTPUT_REFLECTION,
-								STR_FunctionReflection);
-				RegOutput<double>(NodeID::NID_OUTPUT_LARG_COUL,
-								STR_FunctionLargCoul);
-				RegOutput<double>(NodeID::NID_OUTPUT_ECOSYSTEM_SIZE,
-								STR_FunctionEcosystemSize);
-				RegOutput<double>(NodeID::NID_OUTPUT_DEFAULT, 
-								STR_Output);
-				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_HIGHLIGHT_COLOR,
-								STR_HighlightColor);
-
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_HIGHLIGHT_SIZE,
-								  STR_HighlightSize);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_BLURRED_TRANSPARENCIES,
-					STR_BlurredTransparencies, 0, 20, 
-					&outputMap::BlurredMapping, 
-					&outputMap::BlurredInvertMapping);
-				RegOutputRange(NodeID::NID_OUTPUT_REFRACTION_INDEX,
-								  STR_RefractionIndex, 0.5, 2);
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_FLARE_INTENSITY,
-												STR_FlareIntensity, 0, 0.01*255*8);
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_FLARE_SPAN,
-												STR_FlareSpan, 1, 0);
-				RegOutput<double>(NodeID::NID_OUTPUT_FADING_OUT,
-								  STR_FadingOut);
-				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_FADE_OUT_COLOR,
-								  STR_FadeOutColor);
-				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_FADE_LIGHT_COLOR,
-								  STR_FadeLightColor);
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_TURN_REFLECTIVE_WITH_ANGLE,
-												STR_TurnReflectiveWithAngle, 0, 10);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_BLURRED_REFLECTIONS,
-											STR_BlurredReflections, 0, 20, 
-											&outputMap::BlurredMapping, 
-											&outputMap::BlurredInvertMapping);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_DIFFUSE, STR_Diffuse);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_AMBIENT, STR_Ambient);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_LUMINOUS, STR_Luminous);
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_CONTRAST,
-											STR_Contrast, 0.9, 0.01);
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_GLOW_INTENSITY,
-											STR_GlowIntensity, 0, 0.5);
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_GLOW_RADIUS,
-											STR_GlowRadius, 0, 10);
-				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_ORIGIN,
-								  STR_Origin);
-				RegOutput<double>(NodeID::NID_OUTPUT_SMOOTH_BLENDING_STRIP,
-								  STR_SmoothBlendingStrip);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_INFLUENCE_ALTITUDE,
-								  STR_InfluenceAltitude);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_INFLUENCE_SLOPE,
-											STR_InfluenceSlope);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_INFLUENCE_ORIENTATION,
-											STR_InfluenceOrientation);
-				RegOutput<double>(NodeID::NID_OUTPUT_VOLUMETRIC_DENSITY,
-								  STR_VolumetricDensity);
-				RegOutput<double>(NodeID::NID_OUTPUT_VOLUMETRIC_FUZZINESS,
-								  STR_VolumetricFuzziness);
-				
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ANISOTROPIC_HIGHLIGHTING,
-											STR_AnisotropicHighlighting, 0, 100, 
-											&outputMap::AnisotropicMapping, 
-											&outputMap::AnisotropicInvertMapping);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_GLOBAL_TRANSPARENCY,
-											STR_GlobalTransparency);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_GLOBAL_REFLECTIVITY,
-											STR_GlobalReflectivity);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_HIGHLIGHT_INTENSITY,
-											STR_HighlightIntensity);
-
-				VUENodeFactory::Instance().RegisterNode(
-					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-						new VUEDoubleAndColorOutput(
-							NodeID::NID_OUTPUT_COLOR,
-							STR_FunctionColor)));
-
-				VUENodeFactory::Instance().RegisterNode(
-					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-						new VUEDoubleAndColorOutput(
-							NodeID::NID_OUTPUT_COLOR_COMPATIBILITY,
-							STR_FunctionColor)));
-				VUENodeFactory::Instance().RegisterNode(
-					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-						new VUEDoubleAndColorOutput(
-							NodeID::NID_OUTPUT_COLOR_REFLECTED,
-							STR_ColorReflected)));
-				VUENodeFactory::Instance().RegisterNode(
-					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-						new VUEDoubleAndColorOutput(
-							NodeID::NID_OUTPUT_COLOR_TRANSMITTED,
-							STR_ColorTransmitted)));
-				VUENodeFactory::Instance().RegisterNode(
-					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-						new VUEDoubleAndColorOutput(
-							NodeID::NID_OUTPUT_COLOR_BACKLIGHT,
-							STR_ColorBacklight)));
-				
-				// EcoSystem Material outputs.
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_TIGHTNESS,
-								  STR_Tightness);
-				RegOutputRange(NodeID::NID_OUTPUT_ECO_OFFSET_FROM_SURFACE,
-								  STR_OffsetFromSurface, -100, 100);
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_ECO_DECAY_INFLUENCE,
-											STR_DecayInfluence, 0, 100);
-#ifdef VUE_REAL_UNITS_IN_POPULATOR
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_DECAY_FALLOFF,
-											STR_DecayDistanceHalfDensity);
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_DECAY_FALLOFF_DISTANCE,
-								STR_DecayDistance);
-#else //VUE_REAL_UNITS_IN_POPULATOR
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_DECAY_FALLOFF,
-															STR_DecayFalloff, 0, 100, 
-															&outputMap::FalloffMapping, 
-															&outputMap::FalloffInvertMapping);
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_DECAY_FALLOFF_DISTANCE,
-					STR_DecayFalloff);
-#endif //VUE_REAL_UNITS_IN_POPULATOR
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_DIRECTION_FROM_SURFACE,
-											STR_DirectionFromSurface);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_ROTATION,
-											STR_Rotation, 0, 180);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_SHRINK_INFLUENCE,
-											STR_ShrinkInfluence);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_SHRINK_RADIUS,
-											STR_ShrinkRadius);
-#ifdef VUE_REAL_UNITS_IN_POPULATOR
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_SHRINK_FALLOFF,
-											STR_ShrinkFalloff);
-#else //VUE_REAL_UNITS_IN_POPULATOR
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_SHRINK_FALLOFF,
-															STR_ShrinkFalloff, 0, 100, 
-															&outputMap::FalloffMapping, 
-															&outputMap::FalloffInvertMapping);
-#endif //VUE_REAL_UNITS_IN_POPULATOR
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_COLOR_INFLUENCE,
-											STR_ColorInfluence);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_COLOR_RADIUS,
-											STR_ColorRadius);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_COLOR_FALLOFF,
-											STR_ColorFalloff, 0, 100, 
-											&outputMap::FalloffMapping, 
-											&outputMap::FalloffInvertMapping);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_VARIABLE_COLOR_SENSITIVITY,
-											STR_VariableColorSensitivity);
-				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_ECO_COLOR_DECAY_COLOR,
-											STR_DecayColor);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_DISTRIBUTION,
-											STR_Distribution);
-
-				RegOutputRange(NodeID::NID_OUTPUT_ECO_VARIABLE_TIME_OFFSET,
-											STR_FunctionTimeOffset, -1.0, 1.0);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_ECO_LEANOUT_AT_LOW_DENSITY_INFLUENCE,
-											STR_EcoLeanOutInfluence);
-
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_NEAR_AZIMUTH,
-											STR_Azimuth, 0, 360);
-				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_HIGHLIGHT_VALUE,
-									STR_HighlightValue);
-				RegOutputRangeWithMapping(NodeID::NID_OUTPUT_DISPERSION,
-								  STR_Dispersion);
-				RegOutput<double>(NodeID::NID_OUTPUT_ALPHA, STR_Alpha);
-				RegOutput<double>(NodeID::NID_OUTPUT_ENVIRONMENT_ATTENUATION, STR_AlphaEnvironmentAttenuation);
-				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_VECTEUR3, 
-								STR_FunctionVector3Output);
-				RegOutput<Vector2>(NodeID::NID_OUTPUT_VECTEUR2, 
-								STR_FunctionVector2Output);
-				RegOutput<double>(NodeID::NID_OUTPUT_DOUBLE, 
-								STR_FunctionDoubleOutput);
-				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_CLR, 
-								STR_FunctionColorOutput);
-				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_DISPLACEMENT_DIRECTION,
-								STR_DisplacementDirection);
-				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_NORMAL_MAP, 
-								STR_NormalMapping);
-				RegOutput<double>(NodeID::NID_OUTPUT_DISPLACEMENT, STR_Displacement);
-
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SCALE, STR_PhysicScale );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_DENSITY, STR_PhysicDensity );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_DRAG_COEFF, STR_PhysicDragCoeff );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_FRICTION, STR_PhysicFriction );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_ELASTICITY, STR_PhysicElasticity );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_LIFE_DURATION, STR_PhysicLifeTime );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_UNSTICK_FORCE_AMPLITUDE, STR_PhysicLifeTime );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_LIFE_VARIATION_BEGIN, STR_PhysicSizeLifeVariationBegin );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_LIFE_VARIATION_END, STR_PhysicSizeLifeVariationEnd );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_LIFE_VARIATION_COEFF, STR_PhysicSizeLifeVariationCoeff );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_ALTITUDE_VARIATION_BEGIN, STR_PhysicSizeAltitudeVariationBegin );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_ALTITUDE_VARIATION_END, STR_PhysicSizeAltitudeVariationEnd );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_SIZE_ALTITUDE_VARIATION_COEFF, STR_PhysicSizeAltitudeVariationCoeff );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_ALPHA_VARIATION_BEGIN, STR_PhysicAlphaVariationBegin );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_ALPHA_VARIATION_END, STR_PhysicAlphaVariationEnd );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_ALPHA_VARIATION_COEFF, STR_PhysicAlphaVariationCoeff );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_COLOR_VARIATION_BEGIN, STR_PhysicColorVariationBegin );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_COLOR_VARIATION_END, STR_PhysicColorVariationEnd );
-
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_LOCAL_EMISSION_COUNT, STR_PhysicLocalEmissionCount );
-				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_ECO_PHYSIC_LOCAL_EMISSION_VELOCITY, STR_PhysicLocalEmissionVelocity );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_LOCAL_EMISSION_FLOW, STR_PhysicLocalEmissionPeriod );
-				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_ECO_PHYSIC_ROOT_EMISSION_VELOCITY, STR_PhysicRootEmissionVelocityAmplitude );
-				RegOutput<double>(NodeID::NID_OUTPUT_ECO_PHYSIC_ROOT_EMISSION_FLOW, STR_PhysicRootEmissionFlow );
-
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_ALTITUDE_OFFSET, STR_AltitudeOffset, 0, 100);
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_ALTITUDE_OFFSET_EFFECT_ON_Z, STR_AltOffEffectOnZ, 0, 100);
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_HEIGHT_MODULATION, STR_HeightModulation, 0, 100);
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_DENSITY_MODULATION, STR_DensityModulation, 0, 100);
-				RegOutputRangeWithMappingPerCent(NodeID::NID_OUTPUT_SHARPNESS_MODULATION, STR_SharpnessModulation, 0, 100);
-				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_VOLUMETRIC_COLOR_MODULATION, STR_VolumetricColorModulation );
-				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_SKY_AMBIENT_COLOR_MODULATION, STR_SkyAmbienColorModulation );
-				RegOutput<CLRFLOAT>(NodeID::NID_OUTPUT_SUN_AMBIENT_COLOR_MODULATION, STR_SunAmbienColorModulation );
-
-				RegOutput<double>(NodeID::NID_OUTPUT_SSS_DEPTH_MODULATION, STR_SSSDepthModulation);
-				
-				RegInputID<VECTEURDX>(
-					NodeID::NID_LEAF_VECTEUR3_INPUT, STR_FunctionVector3Input);
-				RegInputID<Vector2>(
-					NodeID::NID_LEAF_VECTEUR2_INPUT, STR_FunctionVector2Input);
-				RegInputID<double>(
-					NodeID::NID_LEAF_DOUBLE_INPUT, STR_FunctionDoubleInput);
-				RegInputID<CLRFLOAT>(
-					NodeID::NID_LEAF_COLOR_INPUT, STR_FunctionColorInput);
-
-				RegOutputUnit(NodeID::NID_OUTPUT_POSITION,
-						   STR_FunctionPosition,
-						   STR_WorldParentObjectParametric);
-
-				VUENodeFactory::Instance().RegisterNode(
-					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-						new VUEFunctionOutputNodeAdapter<
-						OutputFuncP<VECTEURDX>, VECTEURDX, TYPELIST_1(VECTEURDX),
-						TYPELIST_1(bool)>(
-							NodeID::NID_OUTPUT_ORIENTATION,
-							OutputFuncP<VECTEURDX>(), STR_FunctionOrientation,
-							BoolParameter(STR_FunctionRelativeToParent, false),
-							0, 0, 0, 0, 3, 1)));
-
-				VUENodeFactory::Instance().RegisterNode(
-					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-						new VUEFunctionOutputNodeAdapter<
-						OutputFuncP<VECTEURDX>, VECTEURDX, TYPELIST_1(VECTEURDX),
-						TYPELIST_3(bool, bool, int)>(
-							NodeID::NID_OUTPUT_SIZE,
-							OutputFuncP<VECTEURDX>(), STR_FunctionSize,
-							BoolParameter(STR_FunctionRelativeToParent, false) +
-							BoolParameter(STR_FunctionTrueDimension, false) +
-							EnumParameter(STR_FunctionUnitLength, GetUnitLengthListIDForThisApp(), 1),
-							0, 0,
-							&VUEWidgetPlacement().Manager(
-								new OutputSizeWidgetManager()), 0, 3, 1)));
-
-				VUENodeFactory::Instance().RegisterNode(
-					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-						new VUEFunctionOutputNodeAdapter<
-						OutputFuncP<VECTEURDX>, VECTEURDX, TYPELIST_1(VECTEURDX),
-						TYPELIST_1(bool)>(
-							NodeID::NID_OUTPUT_PIVOT_OFFSET,
-							OutputFuncP<VECTEURDX>(), STR_PivotOffset,
-							BoolParameter(STR_FunctionRelativeToParent, false),
-							0, 0, 0, 0, 3, 1)));
-
-				VUENodeFactory::Instance().RegisterNode(
-					CustomDependencyCategory(), std::unique_ptr<VUEFunctionNode>(
-						new VUECustomDependencyNode(
-							NodeID::NID_CUSTOM_DEPENDENCY)));
-
-				VUENodeFactory::Instance().RegisterNode(
-					OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-						new VUECustomDependencyNode(
-							NodeID::NID_OUTPUT_CUSTOM_DEPENDENCY)));
-
-				//VUENodeFactory::Instance().RegisterNode(
-				//	OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-				//		new VUEObjectPropertyNode));
-				
-				// Outputs used in mesh morphing graphs for Vue 10 stones: since
-				// the feature is only used internally in recipes, these outputs
-				// do not show up in the menus on regular builds, hence strings
-				// do not need to be translated.
-				RegOutput<VECTEURDX>(NodeID::NID_OUTPUT_DEFORMER, _L("Morphed position"));
-				RegOutput<double>(NodeID::NID_OUTPUT_DEFORMER_RESERVED1,
-					_L("Morph Custom 1 = Surface Roughness (rem. from ISD!)"));
-				RegOutput<double>(NodeID::NID_OUTPUT_DEFORMER_RESERVED2,
-					_L("Morph Custom 2 = Rock Hardness"));
-				RegOutput<double>(
-					NodeID::NID_OUTPUT_DEFORMER_RESERVED3,
-					_L("Morph Custom 3 = Subtracted Function"));
-				RegOutput<double>(
-					NodeID::NID_OUTPUT_DEFORMER_RESERVED4, _L("Morph Custom 4"));
-				RegOutput<double>(
-					NodeID::NID_OUTPUT_DEFORMER_RESERVED5, _L("Morph Custom 5"));
-				RegOutput<double>(
-					NodeID::NID_OUTPUT_DEFORMER_RESERVED6, _L("Morph Custom 6"));
-				RegOutput<double>(
-					NodeID::NID_OUTPUT_DEFORMER_RESERVED7, _L("Morph Custom 7"));
-				RegOutput<double>(
-					NodeID::NID_OUTPUT_DEFORMER_RESERVED8, _L("Morph Custom 8"));
-
-				VUENodeFactory::Instance().RegisterNode(
-					OutputsCategory(), 
-					std::unique_ptr<VUEFunctionNode>(new VUEVegOutputNode()));
-			}
-		
-		template <typename T>
-		void RegOutput(NodeID::NodeID id, const EONResourceString &name)
-		{
-			VUENodeFactory::Instance().RegisterNode(
-				OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-					new VUEFunctionOutputNodeAdapter<
-					OutputFunc<T>, T, TYPELIST_1(T)>(
-						id, OutputFunc<T>(), name, 0, 0, 0, 0, 0, 3, 1)));
-		}
-
-		void RegOutputRange(NodeID::NodeID id, const EONResourceString &name,
-			double min, double max)
-		{
-			VUENodeFactory::Instance().RegisterNode(
-				OutputsRangeCategory(), std::unique_ptr<VUEFunctionNode>(
-				new VUEFunctionOutputNodeAdapter<
-				OutputFuncP<double>, double, TYPELIST_1(double), TYPELIST_1(int)>(
-				id, OutputFuncP<double>(), name, 
-				EnumParameter(STR_FunctionMappingMode, STRLIST_FunctionMappingModeList, 0),
-				0, 0, 0, 0, 3, 1)));
-			VUENodeFactory::Instance().SetOutputRange(id, Vector2(min, max));
-		}
-
-		void RegOutputRangeWithMapping(NodeID::NodeID id, const EONResourceString &name, 
-										double min = 0, double max = 100)
-		{
-			RegOutputRangeWithMapping(id, name, min, max, 
-				boost::bind(&outputMap::SimpleMapping, min, max, _1),
-				boost::bind(&outputMap::SimpleInvertMapping, min, max, _1));
-		}
-
-		void RegOutputRangeWithMappingPerCent(NodeID::NodeID id,
-			const EONResourceString &name, double min = 0, double max = 1)
-		{
-			RegOutputRangeWithMapping(id, name, 0, 100,
-				boost::bind(&outputMap::SimplePerCentMapping, min, max, _1),
-				boost::bind(&outputMap::SimplePerCentInvertMapping, min, max, _1));
-		}
-
-		void RegOutputRangeWithMapping(NodeID::NodeID id, const EONResourceString &name, 
-							double min, double max,
-							const VUENodeFactory::OutputMappingFunc &mapping,
-							const VUENodeFactory::OutputMappingFunc &invert)
-		{
-			RegOutputRange(id, name, min, max);
-			VUENodeFactory::Instance().SetOutputMappingFunc(id, mapping, invert);
-		}
-
-
-		void RegOutputUnit(NodeID::NodeID id, const EONResourceString &name,
-						const EONResourceStringArray &enums)
-		{
-			VUENodeFactory::Instance().RegisterNode(
-				OutputsCategory(), std::unique_ptr<VUEFunctionNode>(
-					new VUEFunctionOutputNodeAdapter<
-					OutputFuncP<VECTEURDX>, VECTEURDX, TYPELIST_1(VECTEURDX),
-					TYPELIST_2(int, int)>(
-						id, OutputFuncP<VECTEURDX>(), name,
-						EnumParameter(STR_PositionKind, enums) +
-						EnumParameter(
-							STR_FunctionUnitLength, GetUnitLengthListIDForThisApp(), 1),
-						0, 0, &VUEWidgetPlacement().Manager(new PositionExtWidgetManager()),
-						0, 3, 1)));
-		}
-
-		template <typename T>
-		void RegInputID(NodeID::NodeID id, const EONResourceString &name)
-		{
-			VUENodeFactory::Instance().RegisterNode(
-				LeavesCategory(), std::unique_ptr<VUEFunctionNode>(
-					new VUEFunctionAdapter<
-					InputFuncP<T>, T, TYPELIST_1(VUEFunctionInputComputer *),
-					TYPELIST_1(int)>(
-						id, InputFuncP<T>(), name,
-						EnumParameter(_L(""), _L("")),
-						0, 0, 0, 0, 3, 1)));
-		}
-	};
-
-	bool bOutputsRegistered_ = false;
-	
-	void RegisterOutputs()
-	{
-		bOutputsRegistered_ = true;
-		RegOutputs regOutputs;
-	}
-
-	struct MyReg
-	{
-		MyReg()
-		{
-			if (!bOutputsRegistered_)
-				RegisterOutputs();
-		}
-	};
-
-	MyReg reg_;
-}
-
-EON_GRAPH_LINK void EnsureOutputsRegistered()
-{
-	if (!bOutputsRegistered_)
-		RegisterOutputs();
-}
-
-EON_GRAPH_LINK int GetUnitLengthListIDForThisApp()
-{
-#ifdef CARBON_SCATTER
-	return STRLIST_FunctionUnitLengthListCS;
-#else
-	return STRLIST_FunctionUnitLengthListVue;
-#endif
-}
-
-
-EON_GRAPH_LINK bool IsOutputNode(NodeID::NodeID nodeID)
-{
-	return (nodeID == NodeID::NID_OUTPUT_VECTEUR3 ||
-		nodeID == NodeID::NID_OUTPUT_VECTEUR2 ||
-		nodeID == NodeID::NID_OUTPUT_DOUBLE ||
-		nodeID == NodeID::NID_OUTPUT_CLR ||
-		nodeID == NodeID::NID_OUTPUT_VEGETATION);
-}
-
-EON_GRAPH_LINK bool IsInputNode(NodeID::NodeID nodeID)
-{
-	return (nodeID == NodeID::NID_LEAF_VECTEUR3_INPUT ||
-		nodeID == NodeID::NID_LEAF_VECTEUR2_INPUT ||
-		nodeID == NodeID::NID_LEAF_DOUBLE_INPUT ||
-		nodeID == NodeID::NID_LEAF_COLOR_INPUT ||
-		nodeID == NodeID::NID_VEGETATION_ROOT);
-}
-
+ContentBase\Scenes\EcoParticles\Dandelions_~~.vue
+ContentBase\Scenes\EcoParticles\Fireworks_~~.vue
+ContentBase\Scenes\EcoParticles\Waterdrop_~~.vue
+ContentBase\Scenes\Sample Animations\01_Clouds_~~.vue
+ContentBase\Scenes\Sample Animations\02_Land_~~.vue
+ContentBase\Scenes\Sample Animations\03_InfiniteTerrain_~~.vue
+ContentBase\Scenes\Sample Animations\04_Godrays_~~.vue
+ContentBase\Scenes\Sample Animations\05_Puff_~~.vue
+ContentBase\Scenes\Sample Animations\06_A New Dawn_~~.vue
+ContentBase\Scenes\Sample Animations\07_Sunrise_~~.vue
+ContentBase\Scenes\Sample Animations\08_WindyHill_~~.vue
+ContentBase\Scenes\Sample Animations\Animation Effects\05_Approach_~~.vue
+ContentBase\Scenes\Sample Animations\Animation Effects\06_Alien_Land_~~.vue
+ContentBase\Scenes\Sample Animations\Animation Effects\08_Zero_One_~~.vue
+ContentBase\Scenes\Sample Animations\Animation Effects\4Seasons_~~.vue
+ContentBase\Scenes\Sample Animations\Animation Effects\Elidor_~~.vue
+ContentBase\Scenes\Sample Animations\Animation Effects\OuterSpace_~~.vue
+ContentBase\Scenes\Sample Animations\Animation Effects\Sepia_~~.vue
+ContentBase\Scenes\Sample Animations\Animation Effects\WindMillsFlythrough_~~.vue
+ContentBase\Scenes\Sample Animations\Planet_e-on [animated]_~~.vue
+ContentBase\Scenes\Samples 1\01_DesertHero_~~.vue
+ContentBase\Scenes\Samples 1\02_Peaceful_~~.vue
+ContentBase\Scenes\Samples 1\03_Mirage_~~.vue
+ContentBase\Scenes\Samples 1\04_A world beyond our world_~~.vue
+ContentBase\Scenes\Samples 1\05_New Mesa_~~.vue
+ContentBase\Scenes\Samples 1\06_RockClouds-v2_~~.vue
+ContentBase\Scenes\Samples 1\07_Seychelles_~~.vue
+ContentBase\Scenes\Samples 1\08_Sponza_~~.vue
+ContentBase\Scenes\Samples 1\09_SnowyLandscape_~~.vue
+ContentBase\Scenes\Samples 1\10_Vue WildThing 2009-final_~~.vue
+ContentBase\Scenes\Samples 1\11_laketahoe2_storm_~~.vue
+ContentBase\Scenes\Samples 1\12_Planet e-on_~~.vue
+ContentBase\Scenes\Samples 1\13_Rockshow_~~.vue
+ContentBase\Scenes\Samples 1\14_ShallowWater_~~.vue
+ContentBase\Scenes\Samples 1\15_StudioLoft_~~.vue
+ContentBase\Scenes\Samples 1\16_MountainLake_~~.vue
+ContentBase\Scenes\Samples 1\17_RadiosityRoom_~~.vue
+ContentBase\Scenes\Samples 1\18_CloudShadow_~~.vue
+ContentBase\Scenes\Samples 1\19_Small Planet_~~.vue
+ContentBase\Scenes\Samples 1\20_FishingRace_~~.vue
+ContentBase\Scenes\Samples 1\21_Cerro Verde_~~.vue
+ContentBase\Scenes\Samples 2\002_The lowest point in the valley_~~.vue
+ContentBase\Scenes\Samples 2\002_Un Autre Desert_~~.vue
+ContentBase\Scenes\Samples 2\003_Somewhere on earth_~~.vue
+ContentBase\Scenes\Samples 2\18_Lofoten_~~.vue
+ContentBase\Scenes\Samples 2\Cliff_~~.vue
+ContentBase\Scenes\Samples 2\FallCove_~~.vue
+ContentBase\Scenes\Samples 2\HighCliffs_~~.vue
+ContentBase\Scenes\Samples 2\LetsExplore11_~~.vue
+ContentBase\Scenes\Samples 2\PTx9c_~~.vue
+ContentBase\Scenes\Samples 2\PTx9e_~~.vue
+ContentBase\Scenes\Samples 2\PTx9g_~~.vue
+ContentBase\Scenes\Samples 2\PTx9i_~~.vue
+ContentBase\Scenes\Samples 2\Peaking Through_~~.vue
+ContentBase\Scenes\Samples 2\Simple Terrain_~~.vue
+ContentBase\Scenes\Samples 2\Terrain_~~.vue
+ContentBase\Scenes\Samples 2\VistaPeeps_~~.vue
+ContentBase\Scenes\Samples 2\West_~~.vue
+ContentBase\Scenes\Samples 2\Zeroed Strata_~~.vue
+ContentBase\Scenes\Samples 3\01_Room Radiosity_~~.vue
+ContentBase\Scenes\Samples 3\02_WinterImpression_NPR_~~.vue
+ContentBase\Scenes\Samples 3\03_FoamyShorelinePhysWaterC_~~.vue
+ContentBase\Scenes\Samples 3\04_Mustang_~~.vue
+ContentBase\Scenes\Samples 3\05_Still Life_~~.vue
+ContentBase\Scenes\Samples 3\06_Tien Shan_~~.vue
+ContentBase\Scenes\Samples 3\07_Bauhaus_~~.vue
+ContentBase\Scenes\Samples 3\08_Undersea_~~.vue
+ContentBase\Scenes\Samples 3\09_Grotto_~~.vue
+ContentBase\Scenes\Samples 3\10_Ecolo-Go_~~.vue
+ContentBase\Scenes\Samples 3\11_Fall_~~.vue
+ContentBase\Scenes\Samples 3\12_Peak_~~.vue
+ContentBase\Scenes\Samples 3\13_Hospital_~~.vue
+ContentBase\Scenes\Samples 3\14_Arbor9_~~.vue
+ContentBase\Scenes\Samples 3\14_Metablob_~~.vue
+ContentBase\Scenes\Samples 3\15_Night Flight_~~.vue
+ContentBase\Scenes\Samples 3\16_Above the Clouds_~~.vue
+ContentBase\Scenes\Samples 3\17_Flower Field_~~.vue
+ContentBase\Scenes\Samples 3\18_A Little Magic_~~.vue
+ContentBase\Scenes\Samples 3\23_Autumn_~~.vue
+ContentBase\Scenes\Samples 3\Tea for Two_~~.vue
+ContentBase\Scenes\Samples 3\Toy Train_~~.vue
+ContentBase\Scenes\Showcase\01_Reflective Caustics_~~.vue
+ContentBase\Scenes\Showcase\02_Refractive Caustics_~~.vue
+ContentBase\Scenes\Showcase\03_SubSurface Scattering_~~.vue
+ContentBase\Scenes\Showcase\04_HyperTexture_~~.vue
+ContentBase\Scenes\Showcase\05_Area Light Example 1_~~.vue
+ContentBase\Scenes\Showcase\06_Area Light Example 2_~~.vue
+ContentBase\Scenes\Showcase\07_Area Light Example 3_~~.vue
+ContentBase\Scenes\Showcase\08_Area Light Example 4_~~.vue
+ContentBase\Scenes\Showcase\09_Displacement_~~.vue
+ContentBase\Scenes\Showcase\10_Displacement 2_~~.vue
+ContentBase\Scenes\Showcase\12_Product Showcase_~~.vue
+ContentBase\Scenes\Showcase\13_Procedural Terrain_~~.vue
+ContentBase\Scenes\Showcase\14_BarkGenerator_~~.vue
+ContentBase\Scenes\Showcase\15_Meta-Horse_~~.vue
+ContentBase\Scenes\Showcase\16_North-West Derby_~~.vue
+ContentBase\Scenes\Splines\AncientWall_~~.vue
+ContentBase\Scenes\Splines\RoadExample_~~.vue
+ContentBase\Scenes\Splines\RollerCoasterExample_~~.vue
+ContentBase\Scenes\Splines\TrainTerrainExample_~~.vue
+ContentBase\Scenes\Tutorials\01_Atmosphere_~~.vue
+ContentBase\Scenes\Tutorials\02_Blur_~~.vue
+ContentBase\Scenes\Tutorials\03_IBLSpheres_~~.vue
+ContentBase\Scenes\Tutorials\04_Sample Radiosity_~~.vue
+ContentBase\Scenes\Tutorials\05_EcoSpheres_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\000pCamera Mapping Tutorial_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\000qAnimated EcoSystem Population Tutorial_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\00a_Loose Tracking_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\00b_Crashing Meteor_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\01a_EcoSystemFire_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\01b_OpenOcean_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\01c_DyingFlesh_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\01d_apursuit_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\02_GettingASpin_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\03_OpeningAWindow_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\04_MorphingTerrains_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\05_AngularPaths_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\06_DropAndBounce_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\07_FlickeringLights_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\08_AnimatingAFish_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\09_SteamPowerTrain_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\10_MakingWaves_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\11_AnimatingClouds_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\12_MovingCaustics_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\13_ACompleteSunset_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\14_StonedFrog_~~.vue
+ContentBase\Scenes\Tutorials\Animation Tutorials\15_AnimatingBooleans_~~.vue
+ContentBase\Scenes\Tutorials\BadSoftShadows_~~.vue
+ContentBase\Scenes\Tutorials\Interactive Procedural Terrain_~~.vue
+ContentBase\Scenes\Tutorials\Moon_~~.vue
+ContentBase\Scenes\Tutorials\Piston Rig_~~.vue
+ContentBase\Scenes\Tutorials\Planet Tutorial End_~~.vue
+ContentBase\Scenes\Tutorials\Planet Tutorial Start_~~.vue
+ContentBase\Scenes\Tutorials\Planet Tutorial Step 1_~~.vue
+ContentBase\Scenes\Tutorials\Planet Tutorial Step 2_~~.vue
+ContentBase\Scenes\Tutorials\Planet Tutorial_~~.vue
+ContentBase\Scenes\Tutorials\Rain_~~.vue
+ContentBase\Scenes\Tutorials\Underwater_~~.vue
+ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 1_~~.vue
+ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 2_~~.vue
+ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 3_~~.vue
+ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 4_~~.vue
+ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 5_~~.vue
+ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 6_~~.vue
+Objects\Objects\Animals\Aerial\19_Dragonfly_~~.vob
+Objects\Objects\Animals\Aerial\20_Bird_~~.vob
+Objects\Objects\Animals\Aerial\21_Eagle_~~.vob
+Objects\Objects\Animals\Aquatic\30_Angelfish_~~.vob
+Objects\Objects\Animals\Aquatic\30m_Shell_~~.vob
+Objects\Objects\Animals\Aquatic\31_Scalar Fish_~~.vob
+Objects\Objects\Animals\Aquatic\32_Dolphin_~~.vob
+Objects\Objects\Animals\Aquatic\33_Tetra_~~.vob
+Objects\Objects\Animals\Aquatic\34_Orca_~~.vob
+Objects\Objects\Animals\Aquatic\35_Distichodus_~~.vob
+Objects\Objects\Animals\Aquatic\36_Shark_~~.vob
+Objects\Objects\Animals\Aquatic\37_Whale_~~.vob
+Objects\Objects\Animals\Prehistoric\18_Dinosaur_~~.vob
+Objects\Objects\Animals\Prehistoric\18m_Triceratops_~~.vob
+Objects\Objects\Animals\Prehistoric\22_Ptero_~~.vob
+Objects\Objects\Animals\Terrestrial\11_Leopard_~~.vob
+Objects\Objects\Animals\Terrestrial\13_Doberman_~~.vob
+Objects\Objects\Animals\Terrestrial\14_Dog_~~.vob
+Objects\Objects\Animals\Terrestrial\15_Turtle_~~.vob
+Objects\Objects\Animals\Terrestrial\16_Frog_~~.vob
+Objects\Objects\Animals\Terrestrial\16m_Snake_~~.vob
+Objects\Objects\Animals\Terrestrial\17_Penguin_~~.vob
+Objects\Objects\Architecture\Elements\Historical\31m_Vault_~~.vob
+Objects\Objects\Architecture\Elements\Historical\40_Waterwheel_~~.vob
+Objects\Objects\Architecture\Houses & Cottages\Historical\25_Building 1_~~.vob
+Objects\Objects\Architecture\Houses & Cottages\Historical\26_Building 2_~~.vob
+Objects\Objects\Architecture\Houses & Cottages\Historical\27_Building 3_~~.vob
+Objects\Objects\Architecture\Houses & Cottages\Historical\28_Building 4_~~.vob
+Objects\Objects\Architecture\Houses & Cottages\Historical\29_Building 5_~~.vob
+Objects\Objects\Architecture\Houses & Cottages\Historical\30_Building 6_~~.vob
+Objects\Objects\Architecture\Houses & Cottages\Historical\32_Toraja House_~~.vob
+Objects\Objects\Architecture\Houses & Cottages\Historical\32m_Cazel_~~.vob
+Objects\Objects\Architecture\Houses & Cottages\Historical\33_Lake House_~~.vob
+Objects\Objects\Architecture\Houses & Cottages\Historical\33m_Small House_~~.vob
+Objects\Objects\Architecture\Large Buildings\Historical\20_Castle 1_~~.vob
+Objects\Objects\Architecture\Large Buildings\Historical\21_Castle 2_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\35_Futuristic building 1_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\36_Futuristic building 2_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\37_Futuristic building 3_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb001_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb002_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb003_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb004_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb005_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb006_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb007_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb008_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb009_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb010_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb011_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb012_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb013_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb014_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb015_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb016_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb017_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb018_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb019_~~.vob
+Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb020_~~.vob
+Objects\Objects\Architecture\Monuments\Historical\34_Gompa_~~.vob
+Objects\Objects\Characters\02_Marlenestand_~~.vob
+Objects\Objects\Characters\03m_Diver2_~~.vob
+Objects\Objects\Characters\Dave_~~.vob
+Objects\Objects\Characters\Fantasy\01_Angelod_~~.vob
+Objects\Objects\Characters\Fantasy\05_Faery_~~.vob
+Objects\Objects\Exterior\01_Barrel_~~.vob
+Objects\Objects\Exterior\02_Barrel 2_~~.vob
+Objects\Objects\Exterior\03_Barrel 3_~~.vob
+Objects\Objects\Exterior\05_Barrel Wheel_~~.vob
+Objects\Objects\Exterior\06_Barrow 1_~~.vob
+Objects\Objects\Exterior\06m_Barrow 2_~~.vob
+Objects\Objects\Exterior\07_Cask_~~.vob
+Objects\Objects\Exterior\08_Tire pile_~~.vob
+Objects\Objects\Exterior\08m_Crate_~~.vob
+Objects\Objects\Exterior\09_Wiremesh Crate_~~.vob
+Objects\Objects\Exterior\10_Capstan_~~.vob
+Objects\Objects\Exterior\11_Barbacoa_~~.vob
+Objects\Objects\Exterior\15_Totem_~~.vob
+Objects\Objects\Exterior\16_Gardenswing_~~.vob
+Objects\Objects\Exterior\17_Plastic Bags_~~.vob
+Objects\Objects\Exterior\18_Pot_~~.vob
+Objects\Objects\Exterior\18m_Flower pot_~~.vob
+Objects\Objects\Exterior\18s_Column_~~.vob
+Objects\Objects\Exterior\19_Column 2_~~.vob
+Objects\Objects\Exterior\42_Shutters_~~.vob
+Objects\Objects\Exterior\43_Balustrade_~~.vob
+Objects\Objects\Exterior\43m_Balcony_~~.vob
+Objects\Objects\Exterior\44_Tiles_~~.vob
+Objects\Objects\Exterior\45_Corrugated iron_~~.vob
+Objects\Objects\Exterior\46_Corrugated iron_~~.vob
+Objects\Objects\Exterior\47_Corrugated iron_~~.vob
+Objects\Objects\Exterior\50_RoadSign_~~.vob
+Objects\Objects\Exterior\51_Sign_~~.vob
+Objects\Objects\Exterior\52_Bridge Sign_~~.vob
+Objects\Objects\Exterior\55_Large Door_~~.vob
+Objects\Objects\Exterior\55m_Casement_~~.vob
+Objects\Objects\Exterior\56_Winch_~~.vob
+Objects\Objects\Exterior\59_Flags_~~.vob
+Objects\Objects\Exterior\Fencing\12_Fence 1_~~.vob
+Objects\Objects\Exterior\Fencing\13_Fence 2_~~.vob
+Objects\Objects\Exterior\Fencing\14_Fence 3_~~.vob
+Objects\Objects\Exterior\Fencing\14m_Privacy Fence_~~.vob
+Objects\Objects\Exterior\Fencing\14s_Metal Gate_~~.vob
+Objects\Objects\Exterior\Fountains\15m_Fountain_~~.vob
+Objects\Objects\Exterior\Nature\03_Stone arch_~~.vob
+Objects\Objects\Exterior\Nature\10_Dead tree_~~.vob
+Objects\Objects\Exterior\Nature\12aRain_~~.vob
+Objects\Objects\Exterior\Nature\13_Beam of light_~~.vob
+Objects\Objects\Exterior\Nature\14_Cloud_~~.vob
+Objects\Objects\Exterior\Nature\15_Moon_~~.vob
+Objects\Objects\Exterior\Nature\16_Moon 2_~~.vob
+Objects\Objects\Exterior\Nature\18b__Stone_~~.vob
+Objects\Objects\Exterior\Nature\18d_Stone #2_~~.vob
+Objects\Objects\Exterior\Nature\18f_Stone #3_~~.vob
+Objects\Objects\Exterior\Nature\18h_Stone #4_~~.vob
+Objects\Objects\Exterior\Nature\18k_Stone #5_~~.vob
+Objects\Objects\Exterior\Nature\18m_Stone #6_~~.vob
+Objects\Objects\Exterior\Nature\19_Distant forest_~~.vob
+Objects\Objects\Exterior\Nature\20_Canyon_~~.vob
+Objects\Objects\Exterior\Nature\25_Pumpkin_~~.vob
+Objects\Objects\Exterior\Nature\61_Mushrooms_~~.vob
+Objects\Objects\Interior\01c_Time for Food!_~~.vob
+Objects\Objects\Interior\01e_Dessert dish_~~.vob
+Objects\Objects\Interior\01g_Saucer_~~.vob
+Objects\Objects\Interior\01j_Plate_~~.vob
+Objects\Objects\Interior\03_Cup_~~.vob
+Objects\Objects\Interior\05_Mug_~~.vob
+Objects\Objects\Interior\07_Tea cup spoon_~~.vob
+Objects\Objects\Interior\09_Canisters_~~.vob
+Objects\Objects\Interior\10_Pots_~~.vob
+Objects\Objects\Interior\10b_Coffeepot_~~.vob
+Objects\Objects\Interior\10d_Vase_~~.vob
+Objects\Objects\Interior\10m_Can_~~.vob
+Objects\Objects\Interior\11_Martini Glass_~~.vob
+Objects\Objects\Interior\12_Moselvine Glass_~~.vob
+Objects\Objects\Interior\13_Portvine Glass_~~.vob
+Objects\Objects\Interior\13m_Whisky bottle_~~.vob
+Objects\Objects\Interior\15_Potery_~~.vob
+Objects\Objects\Interior\16_Potery 2_~~.vob
+Objects\Objects\Interior\16m_Amphora_~~.vob
+Objects\Objects\Interior\16s_Greek Amphora_~~.vob
+Objects\Objects\Interior\19_Tray_~~.vob
+Objects\Objects\Interior\20_Trolley_~~.vob
+Objects\Objects\Interior\25_Box_~~.vob
+Objects\Objects\Interior\26_Box 2_~~.vob
+Objects\Objects\Interior\27_Glasses_~~.vob
+Objects\Objects\Interior\28_Xmas Gifts_~~.vob
+Objects\Objects\Interior\29_Indianrug_~~.vob
+Objects\Objects\Interior\30_Pen and Pencil_~~.vob
+Objects\Objects\Interior\31_Chessboard_~~.vob
+Objects\Objects\Interior\32_Wood Shade_~~.vob
+Objects\Objects\Interior\33_Chain_~~.vob
+Objects\Objects\Interior\34_Wooden Frame_~~.vob
+Objects\Objects\Interior\Electronic\21_Wall clock_~~.vob
+Objects\Objects\Interior\Electronic\22_Table Fan_~~.vob
+Objects\Objects\Interior\Electronic\23_Plug_~~.vob
+Objects\Objects\Interior\Electronic\24_Switch_~~.vob
+Objects\Objects\Interior\Electronic\31_TV 100Hz_~~.vob
+Objects\Objects\Interior\Electronic\33_Speaker_~~.vob
+Objects\Objects\Interior\Electronic\34_Cellular phone_~~.vob
+Objects\Objects\Interior\Electronic\34_PC_~~.vob
+Objects\Objects\Interior\Electronic\34m_Computer_~~.vob
+Objects\Objects\Interior\Electronic\Historical\32_TV_~~.vob
+Objects\Objects\Interior\Furniture\01_Armchair_~~.vob
+Objects\Objects\Interior\Furniture\01m_Chair 1_~~.vob
+Objects\Objects\Interior\Furniture\02_Chair 2_~~.vob
+Objects\Objects\Interior\Furniture\03_Chair 3_~~.vob
+Objects\Objects\Interior\Furniture\05_Couch 1_~~.vob
+Objects\Objects\Interior\Furniture\06_Couch 2_~~.vob
+Objects\Objects\Interior\Furniture\07_Barstool_~~.vob
+Objects\Objects\Interior\Furniture\10_Bar Table_~~.vob
+Objects\Objects\Interior\Furniture\11_Simple Table_~~.vob
+Objects\Objects\Interior\Furniture\12_Table 1_~~.vob
+Objects\Objects\Interior\Furniture\12m_Table 2_~~.vob
+Objects\Objects\Interior\Furniture\13_Tea Table_~~.vob
+Objects\Objects\Interior\Furniture\14_CoffeeTable_~~.vob
+Objects\Objects\Interior\Furniture\14m_Glass Table_~~.vob
+Objects\Objects\Interior\Furniture\15_Console_~~.vob
+Objects\Objects\Interior\Furniture\19_Shelf_~~.vob
+Objects\Objects\Interior\Furniture\20_Bookshelf 1_~~.vob
+Objects\Objects\Interior\Furniture\21_Bookshelf 2_~~.vob
+Objects\Objects\Interior\Furniture\21f_Books_~~.vob
+Objects\Objects\Interior\Furniture\21m_Hutch_~~.vob
+Objects\Objects\Interior\Furniture\22_Display Cabinet_~~.vob
+Objects\Objects\Interior\Furniture\23_Sideboard 1_~~.vob
+Objects\Objects\Interior\Furniture\24_Sideboard 2_~~.vob
+Objects\Objects\Interior\Furniture\24m_Sideboard 3_~~.vob
+Objects\Objects\Interior\Furniture\25_Wood furniture_~~.vob
+Objects\Objects\Interior\Furniture\26_Chest of Drawers_~~.vob
+Objects\Objects\Interior\Furniture\30_Firewood box_~~.vob
+Objects\Objects\Interior\Lighting\01_3 spots arc_~~.vob
+Objects\Objects\Interior\Lighting\01m_Spot_~~.vob
+Objects\Objects\Interior\Lighting\02_Flashlight_~~.vob
+Objects\Objects\Interior\Lighting\03_GooseneckLamp_~~.vob
+Objects\Objects\Interior\Lighting\04_Lamp_~~.vob
+Objects\Objects\Interior\Lighting\05_Lamp2_~~.vob
+Objects\Objects\Interior\Lighting\06_Modern lamp_~~.vob
+Objects\Objects\Interior\Lighting\08_Halogen lamp_~~.vob
+Objects\Objects\Interior\Lighting\10_Lamp Post_~~.vob
+Objects\Objects\Interior\Lighting\10m_Street Lamp_~~.vob
+Objects\Objects\Interior\Lighting\11_Street Lamp 2_~~.vob
+Objects\Objects\Interior\Lighting\12_Lamp stand_~~.vob
+Objects\Objects\Miscellaneous\27_Cigar_~~.vob
+Objects\Objects\Miscellaneous\33_Leather hat_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\01_Boolean operations 1_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\01_Simple house_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\02_Boolean operations 2_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\03_Boolean operations 3_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\04_Boolean operations 4_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\05_Boolean operations 5_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\06_Boolean operations 6_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\07_Truncated cone_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\08_Difference 5_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\09_Fortress_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\09_Hemisphere_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\10_Bowl_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\11_Bowl 2_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\12_Ring_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\13_Tube_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\14_Flower pot_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\15_Pot_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\16_Column_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\17_Column 2_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\18_Control tower_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\19_Brick_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\20_Window_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\21_Small boat_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\22_Well_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\23_Tower_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\24_Cracked sphere_~~.vob
+Objects\Objects\Miscellaneous\Boolean Objects\25_Alien terrain_~~.vob
+Objects\Objects\Miscellaneous\Dynamic Components\Piston Rig_~~.vob
+Objects\Objects\Miscellaneous\Jewelry\28_Bracelet_~~.vob
+Objects\Objects\Miscellaneous\Tools\29_Gears_~~.vob
+Objects\Objects\Miscellaneous\Tools\30_Spring_~~.vob
+Objects\Objects\Miscellaneous\Tools\32_Nail_~~.vob
+Objects\Objects\Miscellaneous\Weapons\31_Broken bottle_~~.vob
+Objects\Objects\Miscellaneous\Weapons\35_Ak47_~~.vob
+Objects\Objects\Miscellaneous\Weapons\36_Sw44mag_~~.vob
+Objects\Objects\Miscellaneous\Weapons\Historical\37_Warmace_~~.vob
+Objects\Objects\Miscellaneous\Weapons\Historical\38_Sabre_~~.vob
+Objects\Objects\Vehicles\Aerial\20_Fw190A3_~~.vob
+Objects\Objects\Vehicles\Aerial\21_Lancaster_~~.vob
+Objects\Objects\Vehicles\Aerial\22_Messerschmitt_~~.vob
+Objects\Objects\Vehicles\Aerial\23_North American P51D_~~.vob
+Objects\Objects\Vehicles\Aerial\24_P40c_~~.vob
+Objects\Objects\Vehicles\Aerial\25_P40c-2_~~.vob
+Objects\Objects\Vehicles\Aerial\44_Zeppelin_~~.vob
+Objects\Objects\Vehicles\Aquatic\30_Yacht_~~.vob
+Objects\Objects\Vehicles\Aquatic\31_Simple Boat_~~.vob
+Objects\Objects\Vehicles\Aquatic\32_Vikingship_~~.vob
+Objects\Objects\Vehicles\Aquatic\33_Small boat_~~.vob
+Objects\Objects\Vehicles\Aquatic\34_Vessel_~~.vob
+Objects\Objects\Vehicles\Aquatic\35_Pirogue_~~.vob
+Objects\Objects\Vehicles\Aquatic\36_Junk_~~.vob
+Objects\Objects\Vehicles\Aquatic\37_Paddle_~~.vob
+Objects\Objects\Vehicles\Space\04_Shuttle_~~.vob
+Objects\Objects\Vehicles\Space\05_Cruiser_~~.vob
+Objects\Objects\Vehicles\Space\40_Soyuz_~~.vob
+Objects\Objects\Vehicles\Space\41_Vostok_~~.vob
+Objects\Objects\Vehicles\Terrestrial\10_Mercedes_~~.vob
+Objects\Objects\Vehicles\Terrestrial\11_X1bdropnmerlin_~~.vob
+Objects\Objects\Vehicles\Terrestrial\12_X2_~~.vob
+Objects\Objects\Vehicles\Terrestrial\14_Mac Laren Mp4-13_~~.vob
+Objects\Objects\Vehicles\Terrestrial\15_BMW Fw23_~~.vob
+Objects\Objects\Vehicles\Terrestrial\16_Ferrari_~~.vob
+Objects\Objects\Vehicles\Terrestrial\39_TGV_~~.vob
+Objects\Objects\Vehicles\Terrestrial\42_Abrams_~~.vob
+Objects\Objects\Vehicles\Terrestrial\43_Car rim_~~.vob
+Scenes\Scenes\xStream Sample Scenes\Rooms with a Vue_~~.vue
