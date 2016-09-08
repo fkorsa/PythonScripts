@@ -1,11 +1,14 @@
 """
+
 author : fkorsakissok
 
 description
-Script only used to start the main script, which is compareThumbnail.py.
+Script only used to start the main script, which is compareThumbnails.py.
 See the doc inside it for more details.
 
 """
+
+import subprocess
 
 def GetScriptFolder():
 #
@@ -14,3 +17,7 @@ def GetScriptFolder():
     Folder,junk = os.path.split(Child().GetCurrentScriptPath())
     return Folder
 
+outputPath = os.path.join(GetScriptFolder(), 'output.png')
+
+pythonProcess = subprocess.Popen(r'python compareThumbnails.py "' + outputPath + '"')
+pythonProcess.wait()
