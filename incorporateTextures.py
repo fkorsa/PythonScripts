@@ -14,14 +14,14 @@ for dirname, dirnames, filenames in os.walk(inputFolder):
         if fileExtension == 'vob' or fileExtension == 'vue':
             dirname = dirname.replace('/', '\\')
             originalFile = dirname + '/' +  filename
-            newFilename = re.sub(r'(.*)\.(.*?)', r'\1~empty.\2', filename, 0, re.DOTALL)
             newFolder = dirname.replace(inputFolder, outputFolder)
-            newFile = newFolder + '/' +  newFilename
+            newFile = newFolder + '/' +  filename
             if not os.path.exists(newFolder):
                 os.makedirs(newFolder)
-            #print 'generating ' + newFile + ' from ' + originalFile + ' ...'
             if os.path.exists(newFile):
-                print 'not generating ' + newFilename + ', because it already exists!'
+                print 'not resaving ' + filename + ', because it already exists!'
             else:
-                print 'generating ' + newFilename + '...'
-                GenerateLRTEmptyCockle(originalFile, newFile)
+                print 'saving ' + filename + '...'
+                LoadObject(originalFile)
+                SaveObject(newFile)
+                Delete()

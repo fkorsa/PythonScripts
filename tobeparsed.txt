@@ -1,414 +1,64 @@
-ContentBase\Scenes\EcoParticles\Dandelions_~~.vue
-ContentBase\Scenes\EcoParticles\Fireworks_~~.vue
-ContentBase\Scenes\EcoParticles\Waterdrop_~~.vue
-ContentBase\Scenes\Sample Animations\01_Clouds_~~.vue
-ContentBase\Scenes\Sample Animations\02_Land_~~.vue
-ContentBase\Scenes\Sample Animations\03_InfiniteTerrain_~~.vue
-ContentBase\Scenes\Sample Animations\04_Godrays_~~.vue
-ContentBase\Scenes\Sample Animations\05_Puff_~~.vue
-ContentBase\Scenes\Sample Animations\06_A New Dawn_~~.vue
-ContentBase\Scenes\Sample Animations\07_Sunrise_~~.vue
-ContentBase\Scenes\Sample Animations\08_WindyHill_~~.vue
-ContentBase\Scenes\Sample Animations\Animation Effects\05_Approach_~~.vue
-ContentBase\Scenes\Sample Animations\Animation Effects\06_Alien_Land_~~.vue
-ContentBase\Scenes\Sample Animations\Animation Effects\08_Zero_One_~~.vue
-ContentBase\Scenes\Sample Animations\Animation Effects\4Seasons_~~.vue
-ContentBase\Scenes\Sample Animations\Animation Effects\Elidor_~~.vue
-ContentBase\Scenes\Sample Animations\Animation Effects\OuterSpace_~~.vue
-ContentBase\Scenes\Sample Animations\Animation Effects\Sepia_~~.vue
-ContentBase\Scenes\Sample Animations\Animation Effects\WindMillsFlythrough_~~.vue
-ContentBase\Scenes\Sample Animations\Planet_e-on [animated]_~~.vue
-ContentBase\Scenes\Samples 1\01_DesertHero_~~.vue
-ContentBase\Scenes\Samples 1\02_Peaceful_~~.vue
-ContentBase\Scenes\Samples 1\03_Mirage_~~.vue
-ContentBase\Scenes\Samples 1\04_A world beyond our world_~~.vue
-ContentBase\Scenes\Samples 1\05_New Mesa_~~.vue
-ContentBase\Scenes\Samples 1\06_RockClouds-v2_~~.vue
-ContentBase\Scenes\Samples 1\07_Seychelles_~~.vue
-ContentBase\Scenes\Samples 1\08_Sponza_~~.vue
-ContentBase\Scenes\Samples 1\09_SnowyLandscape_~~.vue
-ContentBase\Scenes\Samples 1\10_Vue WildThing 2009-final_~~.vue
-ContentBase\Scenes\Samples 1\11_laketahoe2_storm_~~.vue
-ContentBase\Scenes\Samples 1\12_Planet e-on_~~.vue
-ContentBase\Scenes\Samples 1\13_Rockshow_~~.vue
-ContentBase\Scenes\Samples 1\14_ShallowWater_~~.vue
-ContentBase\Scenes\Samples 1\15_StudioLoft_~~.vue
-ContentBase\Scenes\Samples 1\16_MountainLake_~~.vue
-ContentBase\Scenes\Samples 1\17_RadiosityRoom_~~.vue
-ContentBase\Scenes\Samples 1\18_CloudShadow_~~.vue
-ContentBase\Scenes\Samples 1\19_Small Planet_~~.vue
-ContentBase\Scenes\Samples 1\20_FishingRace_~~.vue
-ContentBase\Scenes\Samples 1\21_Cerro Verde_~~.vue
-ContentBase\Scenes\Samples 2\002_The lowest point in the valley_~~.vue
-ContentBase\Scenes\Samples 2\002_Un Autre Desert_~~.vue
-ContentBase\Scenes\Samples 2\003_Somewhere on earth_~~.vue
-ContentBase\Scenes\Samples 2\18_Lofoten_~~.vue
-ContentBase\Scenes\Samples 2\Cliff_~~.vue
-ContentBase\Scenes\Samples 2\FallCove_~~.vue
-ContentBase\Scenes\Samples 2\HighCliffs_~~.vue
-ContentBase\Scenes\Samples 2\LetsExplore11_~~.vue
-ContentBase\Scenes\Samples 2\PTx9c_~~.vue
-ContentBase\Scenes\Samples 2\PTx9e_~~.vue
-ContentBase\Scenes\Samples 2\PTx9g_~~.vue
-ContentBase\Scenes\Samples 2\PTx9i_~~.vue
-ContentBase\Scenes\Samples 2\Peaking Through_~~.vue
-ContentBase\Scenes\Samples 2\Simple Terrain_~~.vue
-ContentBase\Scenes\Samples 2\Terrain_~~.vue
-ContentBase\Scenes\Samples 2\VistaPeeps_~~.vue
-ContentBase\Scenes\Samples 2\West_~~.vue
-ContentBase\Scenes\Samples 2\Zeroed Strata_~~.vue
-ContentBase\Scenes\Samples 3\01_Room Radiosity_~~.vue
-ContentBase\Scenes\Samples 3\02_WinterImpression_NPR_~~.vue
-ContentBase\Scenes\Samples 3\03_FoamyShorelinePhysWaterC_~~.vue
-ContentBase\Scenes\Samples 3\04_Mustang_~~.vue
-ContentBase\Scenes\Samples 3\05_Still Life_~~.vue
-ContentBase\Scenes\Samples 3\06_Tien Shan_~~.vue
-ContentBase\Scenes\Samples 3\07_Bauhaus_~~.vue
-ContentBase\Scenes\Samples 3\08_Undersea_~~.vue
-ContentBase\Scenes\Samples 3\09_Grotto_~~.vue
-ContentBase\Scenes\Samples 3\10_Ecolo-Go_~~.vue
-ContentBase\Scenes\Samples 3\11_Fall_~~.vue
-ContentBase\Scenes\Samples 3\12_Peak_~~.vue
-ContentBase\Scenes\Samples 3\13_Hospital_~~.vue
-ContentBase\Scenes\Samples 3\14_Arbor9_~~.vue
-ContentBase\Scenes\Samples 3\14_Metablob_~~.vue
-ContentBase\Scenes\Samples 3\15_Night Flight_~~.vue
-ContentBase\Scenes\Samples 3\16_Above the Clouds_~~.vue
-ContentBase\Scenes\Samples 3\17_Flower Field_~~.vue
-ContentBase\Scenes\Samples 3\18_A Little Magic_~~.vue
-ContentBase\Scenes\Samples 3\23_Autumn_~~.vue
-ContentBase\Scenes\Samples 3\Tea for Two_~~.vue
-ContentBase\Scenes\Samples 3\Toy Train_~~.vue
-ContentBase\Scenes\Showcase\01_Reflective Caustics_~~.vue
-ContentBase\Scenes\Showcase\02_Refractive Caustics_~~.vue
-ContentBase\Scenes\Showcase\03_SubSurface Scattering_~~.vue
-ContentBase\Scenes\Showcase\04_HyperTexture_~~.vue
-ContentBase\Scenes\Showcase\05_Area Light Example 1_~~.vue
-ContentBase\Scenes\Showcase\06_Area Light Example 2_~~.vue
-ContentBase\Scenes\Showcase\07_Area Light Example 3_~~.vue
-ContentBase\Scenes\Showcase\08_Area Light Example 4_~~.vue
-ContentBase\Scenes\Showcase\09_Displacement_~~.vue
-ContentBase\Scenes\Showcase\10_Displacement 2_~~.vue
-ContentBase\Scenes\Showcase\12_Product Showcase_~~.vue
-ContentBase\Scenes\Showcase\13_Procedural Terrain_~~.vue
-ContentBase\Scenes\Showcase\14_BarkGenerator_~~.vue
-ContentBase\Scenes\Showcase\15_Meta-Horse_~~.vue
-ContentBase\Scenes\Showcase\16_North-West Derby_~~.vue
-ContentBase\Scenes\Splines\AncientWall_~~.vue
-ContentBase\Scenes\Splines\RoadExample_~~.vue
-ContentBase\Scenes\Splines\RollerCoasterExample_~~.vue
-ContentBase\Scenes\Splines\TrainTerrainExample_~~.vue
-ContentBase\Scenes\Tutorials\01_Atmosphere_~~.vue
-ContentBase\Scenes\Tutorials\02_Blur_~~.vue
-ContentBase\Scenes\Tutorials\03_IBLSpheres_~~.vue
-ContentBase\Scenes\Tutorials\04_Sample Radiosity_~~.vue
-ContentBase\Scenes\Tutorials\05_EcoSpheres_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\000pCamera Mapping Tutorial_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\000qAnimated EcoSystem Population Tutorial_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\00a_Loose Tracking_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\00b_Crashing Meteor_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\01a_EcoSystemFire_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\01b_OpenOcean_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\01c_DyingFlesh_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\01d_apursuit_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\02_GettingASpin_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\03_OpeningAWindow_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\04_MorphingTerrains_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\05_AngularPaths_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\06_DropAndBounce_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\07_FlickeringLights_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\08_AnimatingAFish_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\09_SteamPowerTrain_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\10_MakingWaves_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\11_AnimatingClouds_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\12_MovingCaustics_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\13_ACompleteSunset_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\14_StonedFrog_~~.vue
-ContentBase\Scenes\Tutorials\Animation Tutorials\15_AnimatingBooleans_~~.vue
-ContentBase\Scenes\Tutorials\BadSoftShadows_~~.vue
-ContentBase\Scenes\Tutorials\Interactive Procedural Terrain_~~.vue
-ContentBase\Scenes\Tutorials\Moon_~~.vue
-ContentBase\Scenes\Tutorials\Piston Rig_~~.vue
-ContentBase\Scenes\Tutorials\Planet Tutorial End_~~.vue
-ContentBase\Scenes\Tutorials\Planet Tutorial Start_~~.vue
-ContentBase\Scenes\Tutorials\Planet Tutorial Step 1_~~.vue
-ContentBase\Scenes\Tutorials\Planet Tutorial Step 2_~~.vue
-ContentBase\Scenes\Tutorials\Planet Tutorial_~~.vue
-ContentBase\Scenes\Tutorials\Rain_~~.vue
-ContentBase\Scenes\Tutorials\Underwater_~~.vue
-ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 1_~~.vue
-ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 2_~~.vue
-ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 3_~~.vue
-ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 4_~~.vue
-ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 5_~~.vue
-ContentBase\Scenes\Tutorials\Vertigo Tutorial\Step 6_~~.vue
-Objects\Objects\Animals\Aerial\19_Dragonfly_~~.vob
-Objects\Objects\Animals\Aerial\20_Bird_~~.vob
-Objects\Objects\Animals\Aerial\21_Eagle_~~.vob
-Objects\Objects\Animals\Aquatic\30_Angelfish_~~.vob
-Objects\Objects\Animals\Aquatic\30m_Shell_~~.vob
-Objects\Objects\Animals\Aquatic\31_Scalar Fish_~~.vob
-Objects\Objects\Animals\Aquatic\32_Dolphin_~~.vob
-Objects\Objects\Animals\Aquatic\33_Tetra_~~.vob
-Objects\Objects\Animals\Aquatic\34_Orca_~~.vob
-Objects\Objects\Animals\Aquatic\35_Distichodus_~~.vob
-Objects\Objects\Animals\Aquatic\36_Shark_~~.vob
-Objects\Objects\Animals\Aquatic\37_Whale_~~.vob
-Objects\Objects\Animals\Prehistoric\18_Dinosaur_~~.vob
-Objects\Objects\Animals\Prehistoric\18m_Triceratops_~~.vob
-Objects\Objects\Animals\Prehistoric\22_Ptero_~~.vob
-Objects\Objects\Animals\Terrestrial\11_Leopard_~~.vob
-Objects\Objects\Animals\Terrestrial\13_Doberman_~~.vob
-Objects\Objects\Animals\Terrestrial\14_Dog_~~.vob
-Objects\Objects\Animals\Terrestrial\15_Turtle_~~.vob
-Objects\Objects\Animals\Terrestrial\16_Frog_~~.vob
-Objects\Objects\Animals\Terrestrial\16m_Snake_~~.vob
-Objects\Objects\Animals\Terrestrial\17_Penguin_~~.vob
-Objects\Objects\Architecture\Elements\Historical\31m_Vault_~~.vob
-Objects\Objects\Architecture\Elements\Historical\40_Waterwheel_~~.vob
-Objects\Objects\Architecture\Houses & Cottages\Historical\25_Building 1_~~.vob
-Objects\Objects\Architecture\Houses & Cottages\Historical\26_Building 2_~~.vob
-Objects\Objects\Architecture\Houses & Cottages\Historical\27_Building 3_~~.vob
-Objects\Objects\Architecture\Houses & Cottages\Historical\28_Building 4_~~.vob
-Objects\Objects\Architecture\Houses & Cottages\Historical\29_Building 5_~~.vob
-Objects\Objects\Architecture\Houses & Cottages\Historical\30_Building 6_~~.vob
-Objects\Objects\Architecture\Houses & Cottages\Historical\32_Toraja House_~~.vob
-Objects\Objects\Architecture\Houses & Cottages\Historical\32m_Cazel_~~.vob
-Objects\Objects\Architecture\Houses & Cottages\Historical\33_Lake House_~~.vob
-Objects\Objects\Architecture\Houses & Cottages\Historical\33m_Small House_~~.vob
-Objects\Objects\Architecture\Large Buildings\Historical\20_Castle 1_~~.vob
-Objects\Objects\Architecture\Large Buildings\Historical\21_Castle 2_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\35_Futuristic building 1_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\36_Futuristic building 2_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\37_Futuristic building 3_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb001_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb002_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb003_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb004_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb005_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb006_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb007_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb008_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb009_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb010_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb011_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb012_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb013_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb014_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb015_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb016_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb017_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb018_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb019_~~.vob
-Objects\Objects\Architecture\Large Buildings\Sci-Fi\Cb020_~~.vob
-Objects\Objects\Architecture\Monuments\Historical\34_Gompa_~~.vob
-Objects\Objects\Characters\02_Marlenestand_~~.vob
-Objects\Objects\Characters\03m_Diver2_~~.vob
-Objects\Objects\Characters\Dave_~~.vob
-Objects\Objects\Characters\Fantasy\01_Angelod_~~.vob
-Objects\Objects\Characters\Fantasy\05_Faery_~~.vob
-Objects\Objects\Exterior\01_Barrel_~~.vob
-Objects\Objects\Exterior\02_Barrel 2_~~.vob
-Objects\Objects\Exterior\03_Barrel 3_~~.vob
-Objects\Objects\Exterior\05_Barrel Wheel_~~.vob
-Objects\Objects\Exterior\06_Barrow 1_~~.vob
-Objects\Objects\Exterior\06m_Barrow 2_~~.vob
-Objects\Objects\Exterior\07_Cask_~~.vob
-Objects\Objects\Exterior\08_Tire pile_~~.vob
-Objects\Objects\Exterior\08m_Crate_~~.vob
-Objects\Objects\Exterior\09_Wiremesh Crate_~~.vob
-Objects\Objects\Exterior\10_Capstan_~~.vob
-Objects\Objects\Exterior\11_Barbacoa_~~.vob
-Objects\Objects\Exterior\15_Totem_~~.vob
-Objects\Objects\Exterior\16_Gardenswing_~~.vob
-Objects\Objects\Exterior\17_Plastic Bags_~~.vob
-Objects\Objects\Exterior\18_Pot_~~.vob
-Objects\Objects\Exterior\18m_Flower pot_~~.vob
-Objects\Objects\Exterior\18s_Column_~~.vob
-Objects\Objects\Exterior\19_Column 2_~~.vob
-Objects\Objects\Exterior\42_Shutters_~~.vob
-Objects\Objects\Exterior\43_Balustrade_~~.vob
-Objects\Objects\Exterior\43m_Balcony_~~.vob
-Objects\Objects\Exterior\44_Tiles_~~.vob
-Objects\Objects\Exterior\45_Corrugated iron_~~.vob
-Objects\Objects\Exterior\46_Corrugated iron_~~.vob
-Objects\Objects\Exterior\47_Corrugated iron_~~.vob
-Objects\Objects\Exterior\50_RoadSign_~~.vob
-Objects\Objects\Exterior\51_Sign_~~.vob
-Objects\Objects\Exterior\52_Bridge Sign_~~.vob
-Objects\Objects\Exterior\55_Large Door_~~.vob
-Objects\Objects\Exterior\55m_Casement_~~.vob
-Objects\Objects\Exterior\56_Winch_~~.vob
-Objects\Objects\Exterior\59_Flags_~~.vob
-Objects\Objects\Exterior\Fencing\12_Fence 1_~~.vob
-Objects\Objects\Exterior\Fencing\13_Fence 2_~~.vob
-Objects\Objects\Exterior\Fencing\14_Fence 3_~~.vob
-Objects\Objects\Exterior\Fencing\14m_Privacy Fence_~~.vob
-Objects\Objects\Exterior\Fencing\14s_Metal Gate_~~.vob
-Objects\Objects\Exterior\Fountains\15m_Fountain_~~.vob
-Objects\Objects\Exterior\Nature\03_Stone arch_~~.vob
-Objects\Objects\Exterior\Nature\10_Dead tree_~~.vob
-Objects\Objects\Exterior\Nature\12aRain_~~.vob
-Objects\Objects\Exterior\Nature\13_Beam of light_~~.vob
-Objects\Objects\Exterior\Nature\14_Cloud_~~.vob
-Objects\Objects\Exterior\Nature\15_Moon_~~.vob
-Objects\Objects\Exterior\Nature\16_Moon 2_~~.vob
-Objects\Objects\Exterior\Nature\18b__Stone_~~.vob
-Objects\Objects\Exterior\Nature\18d_Stone #2_~~.vob
-Objects\Objects\Exterior\Nature\18f_Stone #3_~~.vob
-Objects\Objects\Exterior\Nature\18h_Stone #4_~~.vob
-Objects\Objects\Exterior\Nature\18k_Stone #5_~~.vob
-Objects\Objects\Exterior\Nature\18m_Stone #6_~~.vob
-Objects\Objects\Exterior\Nature\19_Distant forest_~~.vob
-Objects\Objects\Exterior\Nature\20_Canyon_~~.vob
-Objects\Objects\Exterior\Nature\25_Pumpkin_~~.vob
-Objects\Objects\Exterior\Nature\61_Mushrooms_~~.vob
-Objects\Objects\Interior\01c_Time for Food!_~~.vob
-Objects\Objects\Interior\01e_Dessert dish_~~.vob
-Objects\Objects\Interior\01g_Saucer_~~.vob
-Objects\Objects\Interior\01j_Plate_~~.vob
-Objects\Objects\Interior\03_Cup_~~.vob
-Objects\Objects\Interior\05_Mug_~~.vob
-Objects\Objects\Interior\07_Tea cup spoon_~~.vob
-Objects\Objects\Interior\09_Canisters_~~.vob
-Objects\Objects\Interior\10_Pots_~~.vob
-Objects\Objects\Interior\10b_Coffeepot_~~.vob
-Objects\Objects\Interior\10d_Vase_~~.vob
-Objects\Objects\Interior\10m_Can_~~.vob
-Objects\Objects\Interior\11_Martini Glass_~~.vob
-Objects\Objects\Interior\12_Moselvine Glass_~~.vob
-Objects\Objects\Interior\13_Portvine Glass_~~.vob
-Objects\Objects\Interior\13m_Whisky bottle_~~.vob
-Objects\Objects\Interior\15_Potery_~~.vob
-Objects\Objects\Interior\16_Potery 2_~~.vob
-Objects\Objects\Interior\16m_Amphora_~~.vob
-Objects\Objects\Interior\16s_Greek Amphora_~~.vob
-Objects\Objects\Interior\19_Tray_~~.vob
-Objects\Objects\Interior\20_Trolley_~~.vob
-Objects\Objects\Interior\25_Box_~~.vob
-Objects\Objects\Interior\26_Box 2_~~.vob
-Objects\Objects\Interior\27_Glasses_~~.vob
-Objects\Objects\Interior\28_Xmas Gifts_~~.vob
-Objects\Objects\Interior\29_Indianrug_~~.vob
-Objects\Objects\Interior\30_Pen and Pencil_~~.vob
-Objects\Objects\Interior\31_Chessboard_~~.vob
-Objects\Objects\Interior\32_Wood Shade_~~.vob
-Objects\Objects\Interior\33_Chain_~~.vob
-Objects\Objects\Interior\34_Wooden Frame_~~.vob
-Objects\Objects\Interior\Electronic\21_Wall clock_~~.vob
-Objects\Objects\Interior\Electronic\22_Table Fan_~~.vob
-Objects\Objects\Interior\Electronic\23_Plug_~~.vob
-Objects\Objects\Interior\Electronic\24_Switch_~~.vob
-Objects\Objects\Interior\Electronic\31_TV 100Hz_~~.vob
-Objects\Objects\Interior\Electronic\33_Speaker_~~.vob
-Objects\Objects\Interior\Electronic\34_Cellular phone_~~.vob
-Objects\Objects\Interior\Electronic\34_PC_~~.vob
-Objects\Objects\Interior\Electronic\34m_Computer_~~.vob
-Objects\Objects\Interior\Electronic\Historical\32_TV_~~.vob
-Objects\Objects\Interior\Furniture\01_Armchair_~~.vob
-Objects\Objects\Interior\Furniture\01m_Chair 1_~~.vob
-Objects\Objects\Interior\Furniture\02_Chair 2_~~.vob
-Objects\Objects\Interior\Furniture\03_Chair 3_~~.vob
-Objects\Objects\Interior\Furniture\05_Couch 1_~~.vob
-Objects\Objects\Interior\Furniture\06_Couch 2_~~.vob
-Objects\Objects\Interior\Furniture\07_Barstool_~~.vob
-Objects\Objects\Interior\Furniture\10_Bar Table_~~.vob
-Objects\Objects\Interior\Furniture\11_Simple Table_~~.vob
-Objects\Objects\Interior\Furniture\12_Table 1_~~.vob
-Objects\Objects\Interior\Furniture\12m_Table 2_~~.vob
-Objects\Objects\Interior\Furniture\13_Tea Table_~~.vob
-Objects\Objects\Interior\Furniture\14_CoffeeTable_~~.vob
-Objects\Objects\Interior\Furniture\14m_Glass Table_~~.vob
-Objects\Objects\Interior\Furniture\15_Console_~~.vob
-Objects\Objects\Interior\Furniture\19_Shelf_~~.vob
-Objects\Objects\Interior\Furniture\20_Bookshelf 1_~~.vob
-Objects\Objects\Interior\Furniture\21_Bookshelf 2_~~.vob
-Objects\Objects\Interior\Furniture\21f_Books_~~.vob
-Objects\Objects\Interior\Furniture\21m_Hutch_~~.vob
-Objects\Objects\Interior\Furniture\22_Display Cabinet_~~.vob
-Objects\Objects\Interior\Furniture\23_Sideboard 1_~~.vob
-Objects\Objects\Interior\Furniture\24_Sideboard 2_~~.vob
-Objects\Objects\Interior\Furniture\24m_Sideboard 3_~~.vob
-Objects\Objects\Interior\Furniture\25_Wood furniture_~~.vob
-Objects\Objects\Interior\Furniture\26_Chest of Drawers_~~.vob
-Objects\Objects\Interior\Furniture\30_Firewood box_~~.vob
-Objects\Objects\Interior\Lighting\01_3 spots arc_~~.vob
-Objects\Objects\Interior\Lighting\01m_Spot_~~.vob
-Objects\Objects\Interior\Lighting\02_Flashlight_~~.vob
-Objects\Objects\Interior\Lighting\03_GooseneckLamp_~~.vob
-Objects\Objects\Interior\Lighting\04_Lamp_~~.vob
-Objects\Objects\Interior\Lighting\05_Lamp2_~~.vob
-Objects\Objects\Interior\Lighting\06_Modern lamp_~~.vob
-Objects\Objects\Interior\Lighting\08_Halogen lamp_~~.vob
-Objects\Objects\Interior\Lighting\10_Lamp Post_~~.vob
-Objects\Objects\Interior\Lighting\10m_Street Lamp_~~.vob
-Objects\Objects\Interior\Lighting\11_Street Lamp 2_~~.vob
-Objects\Objects\Interior\Lighting\12_Lamp stand_~~.vob
-Objects\Objects\Miscellaneous\27_Cigar_~~.vob
-Objects\Objects\Miscellaneous\33_Leather hat_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\01_Boolean operations 1_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\01_Simple house_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\02_Boolean operations 2_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\03_Boolean operations 3_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\04_Boolean operations 4_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\05_Boolean operations 5_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\06_Boolean operations 6_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\07_Truncated cone_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\08_Difference 5_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\09_Fortress_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\09_Hemisphere_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\10_Bowl_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\11_Bowl 2_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\12_Ring_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\13_Tube_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\14_Flower pot_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\15_Pot_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\16_Column_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\17_Column 2_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\18_Control tower_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\19_Brick_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\20_Window_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\21_Small boat_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\22_Well_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\23_Tower_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\24_Cracked sphere_~~.vob
-Objects\Objects\Miscellaneous\Boolean Objects\25_Alien terrain_~~.vob
-Objects\Objects\Miscellaneous\Dynamic Components\Piston Rig_~~.vob
-Objects\Objects\Miscellaneous\Jewelry\28_Bracelet_~~.vob
-Objects\Objects\Miscellaneous\Tools\29_Gears_~~.vob
-Objects\Objects\Miscellaneous\Tools\30_Spring_~~.vob
-Objects\Objects\Miscellaneous\Tools\32_Nail_~~.vob
-Objects\Objects\Miscellaneous\Weapons\31_Broken bottle_~~.vob
-Objects\Objects\Miscellaneous\Weapons\35_Ak47_~~.vob
-Objects\Objects\Miscellaneous\Weapons\36_Sw44mag_~~.vob
-Objects\Objects\Miscellaneous\Weapons\Historical\37_Warmace_~~.vob
-Objects\Objects\Miscellaneous\Weapons\Historical\38_Sabre_~~.vob
-Objects\Objects\Vehicles\Aerial\20_Fw190A3_~~.vob
-Objects\Objects\Vehicles\Aerial\21_Lancaster_~~.vob
-Objects\Objects\Vehicles\Aerial\22_Messerschmitt_~~.vob
-Objects\Objects\Vehicles\Aerial\23_North American P51D_~~.vob
-Objects\Objects\Vehicles\Aerial\24_P40c_~~.vob
-Objects\Objects\Vehicles\Aerial\25_P40c-2_~~.vob
-Objects\Objects\Vehicles\Aerial\44_Zeppelin_~~.vob
-Objects\Objects\Vehicles\Aquatic\30_Yacht_~~.vob
-Objects\Objects\Vehicles\Aquatic\31_Simple Boat_~~.vob
-Objects\Objects\Vehicles\Aquatic\32_Vikingship_~~.vob
-Objects\Objects\Vehicles\Aquatic\33_Small boat_~~.vob
-Objects\Objects\Vehicles\Aquatic\34_Vessel_~~.vob
-Objects\Objects\Vehicles\Aquatic\35_Pirogue_~~.vob
-Objects\Objects\Vehicles\Aquatic\36_Junk_~~.vob
-Objects\Objects\Vehicles\Aquatic\37_Paddle_~~.vob
-Objects\Objects\Vehicles\Space\04_Shuttle_~~.vob
-Objects\Objects\Vehicles\Space\05_Cruiser_~~.vob
-Objects\Objects\Vehicles\Space\40_Soyuz_~~.vob
-Objects\Objects\Vehicles\Space\41_Vostok_~~.vob
-Objects\Objects\Vehicles\Terrestrial\10_Mercedes_~~.vob
-Objects\Objects\Vehicles\Terrestrial\11_X1bdropnmerlin_~~.vob
-Objects\Objects\Vehicles\Terrestrial\12_X2_~~.vob
-Objects\Objects\Vehicles\Terrestrial\14_Mac Laren Mp4-13_~~.vob
-Objects\Objects\Vehicles\Terrestrial\15_BMW Fw23_~~.vob
-Objects\Objects\Vehicles\Terrestrial\16_Ferrari_~~.vob
-Objects\Objects\Vehicles\Terrestrial\39_TGV_~~.vob
-Objects\Objects\Vehicles\Terrestrial\42_Abrams_~~.vob
-Objects\Objects\Vehicles\Terrestrial\43_Car rim_~~.vob
-Scenes\Scenes\xStream Sample Scenes\Rooms with a Vue_~~.vue
+FRAME	IDFRAME_BumpDisplacementProd	""	POSITION=(6, 55)	SIZE=(228, 176)
+		CONTROL	IDIMAGE_Bump	""	POSITION=(14, 73)	SIZE=(103, 103)
+		CONTROL	IDFUNCT_Bump	""	POSITION=(123, 73)	SIZE=(103, 49)
+		GROUP	IDGROUP_BumpXYZScale	""	POSITION=(0, 0)	SIZE=(0, 0)
+			LABEL	IDLABEL_BumpDepth	"Depth¤Profond.¤Tiefe¤深さ¤Prof."	POSITION=(121, 156)	SIZE=(42, 13)	ALIGN_RIGHT
+			UPDOWNEDIT	IDUDEDIT_BumpDepth	""	POSITION=(167, 153)	SIZE=(48, 18)	UPDOWN_BUTTON	RANGE=(-10.000000, 10.000000)	LINE=0.050000	PAGE=0.500000	FORMAT="%.04f¤%.04f¤%.04f¤%.04f¤%.04f¤"
+			FRAME	IDFRAME_BumpDisplacementScale	""	POSITION=(14, 180)	SIZE=(212, 43)
+			LABEL	IDLABEL_Bumpx	"X¤X¤X¤X¤X"	POSITION=(25, 198)	SIZE=(10, 13)
+			UPDOWNEDIT	IDUDEDIT_XBumpScale	""	POSITION=(35, 195)	SIZE=(48, 18)	UPDOWN_BUTTON | VARIABLE_INCREMENT	RANGE=(-1000000000.000000, 1000000000.000000)	LINE=0.050000	PAGE=1.000000	FORMAT="%.04f¤%.04f¤%.04f¤%.04f¤%.04f¤"	MIN_INCREMENT=0.010000
+			LABEL	IDLABEL_Bumpy	"Y¤Y¤Y¤Y¤Y"	POSITION=(91, 198)	SIZE=(10, 13)
+			UPDOWNEDIT	IDUDEDIT_YBumpScale	""	POSITION=(101, 195)	SIZE=(48, 18)	UPDOWN_BUTTON | VARIABLE_INCREMENT	RANGE=(-1000000000.000000, 1000000000.000000)	LINE=0.050000	PAGE=1.000000	FORMAT="%.04f¤%.04f¤%.04f¤%.04f¤%.04f¤"	MIN_INCREMENT=0.010000
+			LABEL	IDLABEL_Bumpz	"Z¤Z¤Z¤Z¤Z"	POSITION=(157, 198)	SIZE=(10, 13)
+			UPDOWNEDIT	IDUDEDIT_ZBumpScale	""	POSITION=(167, 195)	SIZE=(48, 18)	UPDOWN_BUTTON | VARIABLE_INCREMENT	RANGE=(-1000000000.000000, 1000000000.000000)	LINE=0.050000	PAGE=1.000000	FORMAT="%.04f¤%.04f¤%.04f¤%.04f¤%.04f¤"	MIN_INCREMENT=0.010000
+		END_GROUP
+		GROUP	IDGROUP_Displacement	""	POSITION=(0, 0)	SIZE=(0, 0)
+			GROUP	IDGROUP_NormalMapOptions	""	POSITION=(0, 0)	SIZE=(0, 0)
+				FRAME	IDFRAME_NormalMap	"Normal map¤Normal map¤Normale-Bild¤ノーマルマップ¤"	POSITION=(6, 191)	SIZE=(228, 40)
+				LABEL	IDLABEL_NMAmplitude	"Amplitude¤Amplitude¤Amplitude¤偏角¤"	POSITION=(20, 207)	SIZE=(64, 13)
+				SLIDER	IDSLIDER_NMAmplitude	""	POSITION=(90, 206)	SIZE=(89, 18)	RANGE=(0.000000, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDUDEDIT_NMAmplitude
+				UPDOWNEDIT	IDUDEDIT_NMAmplitude	""	POSITION=(182, 206)	SIZE=(40, 18)	RANGE=(0.000000, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDSLIDER_NMAmplitude	FORMAT="%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤"
+			END_GROUP
+			TEXTBUTTON	IDBUTTON_ImportNormalMap	"Import normal map¤Import Normal Map¤Import Normale-Bild¤法線マップの読込み¤Importa mappa normale"	POSITION=(478, 114)	SIZE=(136, 18)
+			COMBOBOX	IDCOMBO_BumpDirection	""	POSITION=(478, 93)	SIZE=(138, 18)	NOT_EDITABLE
+			FRAMECHECKBOX	IDFRAMECHECK_DisplacementMapping	"Displacement mapping¤Déplacement de matière¤Displacement Mapping¤ディスプレイスメントマッピング¤"	POSITION=(241, 55)	SIZE=(384, 176)	AUTO_ENABLE
+				LABEL	IDLABEL_DisplacementQBoost	"Quality boost¤Pousser qualité¤Qualitätsschub¤品質ブースト¤Aumento qualità"	POSITION=(249, 96)	SIZE=(86, 13)
+				SLIDER	IDSLIDER_DisplacementQBoost	""	POSITION=(340, 93)	SIZE=(76, 18)	RANGE=(-4.000000, 4.000000)	LINE=0.200000	PAGE=1.000000	BUDDY=IDUDEDIT_DisplacementQBoost
+				UPDOWNEDIT	IDUDEDIT_DisplacementQBoost	""	POSITION=(420, 93)	SIZE=(40, 18)	RANGE=(-4.000000, 4.000000)	LINE=0.200000	PAGE=1.000000	BUDDY=IDSLIDER_DisplacementQBoost	FORMAT="%+.01f¤%+.01f¤%+.01f¤%+.01f¤%+.01f¤"
+				CHECKBOX	IDCHECK_DMEcoInfluence	"Move EcoSystem instances¤Déplacer instances EcoSystem¤EcoSystem Instanzen bewegen¤EcoSystemインスタンスを移動¤Sposta istanze degli EcoSystem"	POSITION=(249, 132)	SIZE=(175, 13)
+				CHECKBOX	IDCHECK_DMPositiveOnly	"Displace outwards only¤Déplacer vers l\'ext. seulement¤Displacement nur auswärts¤外側の置換のみ¤Sposta solo verso l\'esterno"	POSITION=(249, 149)	SIZE=(175, 13)
+				CHECKBOX	IDCHECK_DMDisplacedImpactAspect	"Affect material distribution¤Affecter distribution des matières¤Materialverteilung beeinflussen"	POSITION=(249, 166)	SIZE=(323, 13)
+				CHECKBOX	IDCHECK_DMForceExtension	"Force extension¤Forcer l\'extension¤Erweiterung erzwingen¤強度の調整¤Forza l\'estensione"	POSITION=(249, 115)	SIZE=(160, 13)
+				LABEL	IDLABEL_DMDirection	"Displacement direction¤Direction du déplacement¤Displacement Richtung¤ディスプレイスメントの向き¤Spostamento direzione"	POSITION=(480, 78)	SIZE=(136, 13)
+				LABEL	IDLABEL_DMSmoothing	"Smoothing¤Lissage¤Glättung¤スムージング¤Lisciatura"	POSITION=(249, 75)	SIZE=(79, 13)
+				SLIDER	IDSLIDER_DMSmoothing	""	POSITION=(340, 72)	SIZE=(76, 18)	RANGE=(0.000000, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDUDEDIT_DMSmoothing
+				UPDOWNEDIT	IDUDEDIT_DMSmoothing	""	POSITION=(420, 72)	SIZE=(40, 18)	RANGE=(0.000010, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDSLIDER_DMSmoothing	FORMAT="%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤"
+				CHECKBOX	IDCHECK_AddBumpToDisplacement	"Add bump mapping to displaced surface¤Ajouter du relief au déplacement¤Displacement Oberfläche Relief zufügen¤ディスプレイス表面へバンプマップ追加¤Aggiungi mappatura gobbe alla superficie spostata"	POSITION=(249, 185)	SIZE=(225, 13)
+				CHECKBOX	IDCHECK_MaximalDisplacementLevel	"Limit automatic subdivision to¤Limite subdivision automatique¤Begrenze Autounterteilung auf¤自動サブディビジョン制限¤"	POSITION=(249, 204)	SIZE=(200, 13)
+				COMBOBOX	IDCOMBO_MaximalDisplacementLevel	""	POSITION=(569, 202)	SIZE=(48, 18)	NOT_EDITABLE
+				GROUP	IDGROUP_AdditionalBump	""	POSITION=(0, 0)	SIZE=(0, 0)
+					LABEL	IDLABEL_AdditionalBumpDepth	"Bump depth¤Profondeur ¤Relieftiefe¤バンプ深度¤Altezza gobba"	POSITION=(498, 185)	SIZE=(62, 13)
+					UPDOWNEDIT	IDUDEDIT_AdditionalBumpDepth	""	POSITION=(568, 182)	SIZE=(48, 18)	UPDOWN_BUTTON | VARIABLE_INCREMENT	RANGE=(-1000000000.000000, 1000000000.000000)	LINE=0.050000	PAGE=1.000000	FORMAT="%.04f¤%.04f¤%.04f¤%.04f¤%.04f¤"	MIN_INCREMENT=1.000000
+				END_GROUP
+				LABEL	IDLABEL_DMFunction	""	POSITION=(508, 203)	SIZE=(60, 13)	NOT_VISIBLE
+				GROUP	IDGROUP_DMForceExtension	""	POSITION=(0, 0)	SIZE=(0, 0)
+					UPDOWNEDIT	IDUDEDIT_DisplacementExtension	""	POSITION=(420, 114)	SIZE=(40, 18)	RANGE=(0.000010, 10.000000)	LINE=0.200000	PAGE=1.000000	FORMAT="%.03f¤%.03f¤%.03f¤%.03f¤%.03f¤"
+				END_GROUP
+
+			FRAMECHECKBOX	IDFRAMECHECK_DMSlopeInfluence	"Dependent on slope¤Dépendant de la pente¤Neigungsabhängig¤勾配に依存¤A seconda della pendenza"	POSITION=(241, 235)	SIZE=(384, 52)	AUTO_ENABLE
+				FRAME	IDFRAME_DMSlopeCoordSyst	"Coordinate system¤Système de coordonnées¤Koordinatensystem¤座標基準¤Sistema di coordinate"	POSITION=(477, 245)	SIZE=(142, 36)
+				RADIOBUTTON	IDRADIO_DMSlopeWorld	"World ¤Monde¤Welt¤ワールド座標¤Mondo"	POSITION=(485, 262)	SIZE=(56, 13)
+				RADIOBUTTON	IDRADIO_DMSlopeObject	"Object ¤Objet¤Objekt¤オブジェクト座標¤Oggetto"	POSITION=(552, 262)	SIZE=(53, 13)
+				SLIDER	IDSLIDER_BumpSlopeInfluence	""	POSITION=(259, 255)	SIZE=(157, 18)	RANGE=(0.000000, 100.000000)	LINE=1.000000	PAGE=5.000000	BUDDY=IDUDEDIT_BumpSlopeInfluence
+				UPDOWNEDIT	IDUDEDIT_BumpSlopeInfluence	""	POSITION=(420, 255)	SIZE=(40, 18)	RANGE=(0.000000, 100.000000)	LINE=1.000000	PAGE=5.000000	BUDDY=IDSLIDER_BumpSlopeInfluence	FORMAT="%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤"
+				LABEL	IDLABEL_BumpSlopeInfluenceNone	"None¤Aucune¤Kein¤なし¤Nessuno"	POSITION=(262, 269)	SIZE=(48, 11)	FONT=FONTID_Small
+				LABEL	IDLABEL_BumpSlopeInfluenceStrong	"Strong¤Importante¤Stark¤強¤Forte"	POSITION=(364, 269)	SIZE=(49, 11)	FONT=FONTID_Small	ALIGN_RIGHT
+
+		END_GROUP
+		GROUP	IDGROUP_KeepOtherLayersBump	""	POSITION=(0, 0)	SIZE=(0, 0)
+			FRAME	IDFRAME_UnderlyingBumpDisplacement	""	POSITION=(6, 235)	SIZE=(228, 52)
+			SLIDER	IDSLIDER_KeepOtherLayersBump	""	POSITION=(20, 255)	SIZE=(159, 18)	RANGE=(0.000000, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDUDEDIT_KeepOtherLayersBump
+			LABEL	IDLABEL_KeepOtherLayersBump_Replace	"Replace¤Remplacer¤Ersetzen¤置換¤Sostituisci"	POSITION=(21, 269)	SIZE=(70, 11)	FONT=FONTID_Small
+			LABEL	IDLABEL_KeepOtherLayersBump_Add	"Add¤Ajouter¤Zufügen¤追加¤Aggiungi"	POSITION=(122, 269)	SIZE=(53, 11)	FONT=FONTID_Small	ALIGN_RIGHT
+			UPDOWNEDIT	IDUDEDIT_KeepOtherLayersBump	"¤95%¤95%¤95%¤95%¤"	POSITION=(182, 255)	SIZE=(40, 18)	RANGE=(0.000000, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDSLIDER_KeepOtherLayersBump	FORMAT="%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤"
+		END_GROUP
