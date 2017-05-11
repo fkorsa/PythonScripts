@@ -1,64 +1,34 @@
-FRAME	IDFRAME_BumpDisplacementProd	""	POSITION=(6, 55)	SIZE=(228, 176)
-		CONTROL	IDIMAGE_Bump	""	POSITION=(14, 73)	SIZE=(103, 103)
-		CONTROL	IDFUNCT_Bump	""	POSITION=(123, 73)	SIZE=(103, 49)
-		GROUP	IDGROUP_BumpXYZScale	""	POSITION=(0, 0)	SIZE=(0, 0)
-			LABEL	IDLABEL_BumpDepth	"Depth¤Profond.¤Tiefe¤深さ¤Prof."	POSITION=(121, 156)	SIZE=(42, 13)	ALIGN_RIGHT
-			UPDOWNEDIT	IDUDEDIT_BumpDepth	""	POSITION=(167, 153)	SIZE=(48, 18)	UPDOWN_BUTTON	RANGE=(-10.000000, 10.000000)	LINE=0.050000	PAGE=0.500000	FORMAT="%.04f¤%.04f¤%.04f¤%.04f¤%.04f¤"
-			FRAME	IDFRAME_BumpDisplacementScale	""	POSITION=(14, 180)	SIZE=(212, 43)
-			LABEL	IDLABEL_Bumpx	"X¤X¤X¤X¤X"	POSITION=(25, 198)	SIZE=(10, 13)
-			UPDOWNEDIT	IDUDEDIT_XBumpScale	""	POSITION=(35, 195)	SIZE=(48, 18)	UPDOWN_BUTTON | VARIABLE_INCREMENT	RANGE=(-1000000000.000000, 1000000000.000000)	LINE=0.050000	PAGE=1.000000	FORMAT="%.04f¤%.04f¤%.04f¤%.04f¤%.04f¤"	MIN_INCREMENT=0.010000
-			LABEL	IDLABEL_Bumpy	"Y¤Y¤Y¤Y¤Y"	POSITION=(91, 198)	SIZE=(10, 13)
-			UPDOWNEDIT	IDUDEDIT_YBumpScale	""	POSITION=(101, 195)	SIZE=(48, 18)	UPDOWN_BUTTON | VARIABLE_INCREMENT	RANGE=(-1000000000.000000, 1000000000.000000)	LINE=0.050000	PAGE=1.000000	FORMAT="%.04f¤%.04f¤%.04f¤%.04f¤%.04f¤"	MIN_INCREMENT=0.010000
-			LABEL	IDLABEL_Bumpz	"Z¤Z¤Z¤Z¤Z"	POSITION=(157, 198)	SIZE=(10, 13)
-			UPDOWNEDIT	IDUDEDIT_ZBumpScale	""	POSITION=(167, 195)	SIZE=(48, 18)	UPDOWN_BUTTON | VARIABLE_INCREMENT	RANGE=(-1000000000.000000, 1000000000.000000)	LINE=0.050000	PAGE=1.000000	FORMAT="%.04f¤%.04f¤%.04f¤%.04f¤%.04f¤"	MIN_INCREMENT=0.010000
-		END_GROUP
-		GROUP	IDGROUP_Displacement	""	POSITION=(0, 0)	SIZE=(0, 0)
-			GROUP	IDGROUP_NormalMapOptions	""	POSITION=(0, 0)	SIZE=(0, 0)
-				FRAME	IDFRAME_NormalMap	"Normal map¤Normal map¤Normale-Bild¤ノーマルマップ¤"	POSITION=(6, 191)	SIZE=(228, 40)
-				LABEL	IDLABEL_NMAmplitude	"Amplitude¤Amplitude¤Amplitude¤偏角¤"	POSITION=(20, 207)	SIZE=(64, 13)
-				SLIDER	IDSLIDER_NMAmplitude	""	POSITION=(90, 206)	SIZE=(89, 18)	RANGE=(0.000000, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDUDEDIT_NMAmplitude
-				UPDOWNEDIT	IDUDEDIT_NMAmplitude	""	POSITION=(182, 206)	SIZE=(40, 18)	RANGE=(0.000000, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDSLIDER_NMAmplitude	FORMAT="%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤"
-			END_GROUP
-			TEXTBUTTON	IDBUTTON_ImportNormalMap	"Import normal map¤Import Normal Map¤Import Normale-Bild¤法線マップの読込み¤Importa mappa normale"	POSITION=(478, 114)	SIZE=(136, 18)
-			COMBOBOX	IDCOMBO_BumpDirection	""	POSITION=(478, 93)	SIZE=(138, 18)	NOT_EDITABLE
-			FRAMECHECKBOX	IDFRAMECHECK_DisplacementMapping	"Displacement mapping¤Déplacement de matière¤Displacement Mapping¤ディスプレイスメントマッピング¤"	POSITION=(241, 55)	SIZE=(384, 176)	AUTO_ENABLE
-				LABEL	IDLABEL_DisplacementQBoost	"Quality boost¤Pousser qualité¤Qualitätsschub¤品質ブースト¤Aumento qualità"	POSITION=(249, 96)	SIZE=(86, 13)
-				SLIDER	IDSLIDER_DisplacementQBoost	""	POSITION=(340, 93)	SIZE=(76, 18)	RANGE=(-4.000000, 4.000000)	LINE=0.200000	PAGE=1.000000	BUDDY=IDUDEDIT_DisplacementQBoost
-				UPDOWNEDIT	IDUDEDIT_DisplacementQBoost	""	POSITION=(420, 93)	SIZE=(40, 18)	RANGE=(-4.000000, 4.000000)	LINE=0.200000	PAGE=1.000000	BUDDY=IDSLIDER_DisplacementQBoost	FORMAT="%+.01f¤%+.01f¤%+.01f¤%+.01f¤%+.01f¤"
-				CHECKBOX	IDCHECK_DMEcoInfluence	"Move EcoSystem instances¤Déplacer instances EcoSystem¤EcoSystem Instanzen bewegen¤EcoSystemインスタンスを移動¤Sposta istanze degli EcoSystem"	POSITION=(249, 132)	SIZE=(175, 13)
-				CHECKBOX	IDCHECK_DMPositiveOnly	"Displace outwards only¤Déplacer vers l\'ext. seulement¤Displacement nur auswärts¤外側の置換のみ¤Sposta solo verso l\'esterno"	POSITION=(249, 149)	SIZE=(175, 13)
-				CHECKBOX	IDCHECK_DMDisplacedImpactAspect	"Affect material distribution¤Affecter distribution des matières¤Materialverteilung beeinflussen"	POSITION=(249, 166)	SIZE=(323, 13)
-				CHECKBOX	IDCHECK_DMForceExtension	"Force extension¤Forcer l\'extension¤Erweiterung erzwingen¤強度の調整¤Forza l\'estensione"	POSITION=(249, 115)	SIZE=(160, 13)
-				LABEL	IDLABEL_DMDirection	"Displacement direction¤Direction du déplacement¤Displacement Richtung¤ディスプレイスメントの向き¤Spostamento direzione"	POSITION=(480, 78)	SIZE=(136, 13)
-				LABEL	IDLABEL_DMSmoothing	"Smoothing¤Lissage¤Glättung¤スムージング¤Lisciatura"	POSITION=(249, 75)	SIZE=(79, 13)
-				SLIDER	IDSLIDER_DMSmoothing	""	POSITION=(340, 72)	SIZE=(76, 18)	RANGE=(0.000000, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDUDEDIT_DMSmoothing
-				UPDOWNEDIT	IDUDEDIT_DMSmoothing	""	POSITION=(420, 72)	SIZE=(40, 18)	RANGE=(0.000010, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDSLIDER_DMSmoothing	FORMAT="%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤"
-				CHECKBOX	IDCHECK_AddBumpToDisplacement	"Add bump mapping to displaced surface¤Ajouter du relief au déplacement¤Displacement Oberfläche Relief zufügen¤ディスプレイス表面へバンプマップ追加¤Aggiungi mappatura gobbe alla superficie spostata"	POSITION=(249, 185)	SIZE=(225, 13)
-				CHECKBOX	IDCHECK_MaximalDisplacementLevel	"Limit automatic subdivision to¤Limite subdivision automatique¤Begrenze Autounterteilung auf¤自動サブディビジョン制限¤"	POSITION=(249, 204)	SIZE=(200, 13)
-				COMBOBOX	IDCOMBO_MaximalDisplacementLevel	""	POSITION=(569, 202)	SIZE=(48, 18)	NOT_EDITABLE
-				GROUP	IDGROUP_AdditionalBump	""	POSITION=(0, 0)	SIZE=(0, 0)
-					LABEL	IDLABEL_AdditionalBumpDepth	"Bump depth¤Profondeur ¤Relieftiefe¤バンプ深度¤Altezza gobba"	POSITION=(498, 185)	SIZE=(62, 13)
-					UPDOWNEDIT	IDUDEDIT_AdditionalBumpDepth	""	POSITION=(568, 182)	SIZE=(48, 18)	UPDOWN_BUTTON | VARIABLE_INCREMENT	RANGE=(-1000000000.000000, 1000000000.000000)	LINE=0.050000	PAGE=1.000000	FORMAT="%.04f¤%.04f¤%.04f¤%.04f¤%.04f¤"	MIN_INCREMENT=1.000000
-				END_GROUP
-				LABEL	IDLABEL_DMFunction	""	POSITION=(508, 203)	SIZE=(60, 13)	NOT_VISIBLE
-				GROUP	IDGROUP_DMForceExtension	""	POSITION=(0, 0)	SIZE=(0, 0)
-					UPDOWNEDIT	IDUDEDIT_DisplacementExtension	""	POSITION=(420, 114)	SIZE=(40, 18)	RANGE=(0.000010, 10.000000)	LINE=0.200000	PAGE=1.000000	FORMAT="%.03f¤%.03f¤%.03f¤%.03f¤%.03f¤"
-				END_GROUP
-
-			FRAMECHECKBOX	IDFRAMECHECK_DMSlopeInfluence	"Dependent on slope¤Dépendant de la pente¤Neigungsabhängig¤勾配に依存¤A seconda della pendenza"	POSITION=(241, 235)	SIZE=(384, 52)	AUTO_ENABLE
-				FRAME	IDFRAME_DMSlopeCoordSyst	"Coordinate system¤Système de coordonnées¤Koordinatensystem¤座標基準¤Sistema di coordinate"	POSITION=(477, 245)	SIZE=(142, 36)
-				RADIOBUTTON	IDRADIO_DMSlopeWorld	"World ¤Monde¤Welt¤ワールド座標¤Mondo"	POSITION=(485, 262)	SIZE=(56, 13)
-				RADIOBUTTON	IDRADIO_DMSlopeObject	"Object ¤Objet¤Objekt¤オブジェクト座標¤Oggetto"	POSITION=(552, 262)	SIZE=(53, 13)
-				SLIDER	IDSLIDER_BumpSlopeInfluence	""	POSITION=(259, 255)	SIZE=(157, 18)	RANGE=(0.000000, 100.000000)	LINE=1.000000	PAGE=5.000000	BUDDY=IDUDEDIT_BumpSlopeInfluence
-				UPDOWNEDIT	IDUDEDIT_BumpSlopeInfluence	""	POSITION=(420, 255)	SIZE=(40, 18)	RANGE=(0.000000, 100.000000)	LINE=1.000000	PAGE=5.000000	BUDDY=IDSLIDER_BumpSlopeInfluence	FORMAT="%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤"
-				LABEL	IDLABEL_BumpSlopeInfluenceNone	"None¤Aucune¤Kein¤なし¤Nessuno"	POSITION=(262, 269)	SIZE=(48, 11)	FONT=FONTID_Small
-				LABEL	IDLABEL_BumpSlopeInfluenceStrong	"Strong¤Importante¤Stark¤強¤Forte"	POSITION=(364, 269)	SIZE=(49, 11)	FONT=FONTID_Small	ALIGN_RIGHT
-
-		END_GROUP
-		GROUP	IDGROUP_KeepOtherLayersBump	""	POSITION=(0, 0)	SIZE=(0, 0)
-			FRAME	IDFRAME_UnderlyingBumpDisplacement	""	POSITION=(6, 235)	SIZE=(228, 52)
-			SLIDER	IDSLIDER_KeepOtherLayersBump	""	POSITION=(20, 255)	SIZE=(159, 18)	RANGE=(0.000000, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDUDEDIT_KeepOtherLayersBump
-			LABEL	IDLABEL_KeepOtherLayersBump_Replace	"Replace¤Remplacer¤Ersetzen¤置換¤Sostituisci"	POSITION=(21, 269)	SIZE=(70, 11)	FONT=FONTID_Small
-			LABEL	IDLABEL_KeepOtherLayersBump_Add	"Add¤Ajouter¤Zufügen¤追加¤Aggiungi"	POSITION=(122, 269)	SIZE=(53, 11)	FONT=FONTID_Small	ALIGN_RIGHT
-			UPDOWNEDIT	IDUDEDIT_KeepOtherLayersBump	"¤95%¤95%¤95%¤95%¤"	POSITION=(182, 255)	SIZE=(40, 18)	RANGE=(0.000000, 100.000000)	LINE=5.000000	PAGE=25.000000	BUDDY=IDSLIDER_KeepOtherLayersBump	FORMAT="%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤%.0f%%¤"
-		END_GROUP
++		lcName	0x0000000000789fd0 L""	wchar_t[0x00000028]
+		lcOptions	0xffffffff	unsigned int
+		lcStatus	0x00000000	unsigned int
+		lcLocks	0x00000000	unsigned int
+		lcMsgBase	0xfffffc01	unsigned int
+		lcDevice	0x0000fe00	unsigned int
+		lcPktRate	0x00009ec0	unsigned int
+		lcPktData	0x000007ff	unsigned long
+		lcPktMode	0xfffff880	unsigned long
+		lcMoveMask	0x00000000	unsigned long
+		lcBtnDnMask	0xfffffc01	unsigned long
+		lcBtnUpMask	0x00000f00	unsigned long
+		lcInOrgX	0x000004b0	long
+		lcInOrgY	0x000007ff	long
+		lcInOrgZ	0x00010000	long
+		lcInExtX	0x00010000	long
+		lcInExtY	0x00010000	long
+		lcInExtZ	0x00000000	long
+		lcOutOrgX	0xfffff880	long
+		lcOutOrgY	0x00000000	long
+		lcOutOrgZ	0x00000f00	long
+		lcOutExtX	0x000004b0	long
+		lcOutExtY	0x00010000	long
+		lcOutExtZ	0x00010000	long
+		lcSensX	0x00000000	unsigned long
+		lcSensY	0x00000000	unsigned long
+		lcSensZ	0x00000000	unsigned long
+		lcSysMode	0x00000000	int
+		lcSysOrgX	0x00000000	int
+		lcSysOrgY	0x00000000	int
+		lcSysExtX	0x00000000	int
+		lcSysExtY	0x00000000	int
+		lcSysSensX	0x00000000	unsigned long
+		lcSysSensY	0x00000000	unsigned long
