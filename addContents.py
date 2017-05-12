@@ -6,7 +6,7 @@ fileContents = ''
 
 inputFolder = raw_input('>> Input folder : ')
 outputFile = raw_input('>> Output file : ')
-	
+
 def getFileContents(dirname, filename):
 	parsedFile = os.path.join(dirname, filename)
 	file = open(parsedFile, 'r')
