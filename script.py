@@ -10,7 +10,7 @@ contents = file.read()
 ###########################################
 # Replace spanning single line
 ###########################################
-contents = re.sub(r'@loader_path', r'/Volumes/Crypted/Vue2016Build_2/program/lib', contents)
+contents = re.sub(r'(.*\\)([^\\]+)', r'\1Default\\\2', contents)
 
 ###########################################
 # Search spanning multiple lines
