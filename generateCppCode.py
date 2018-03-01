@@ -12,11 +12,11 @@ def write_contents(contents):
     file.write(contents)
     file.close()
 
-modelName = 'Potential'
-modelUserName = 'Potential'
+modelName = 'Hamiltonian'
+modelUserName = 'Hamiltonian'
 
 inputParameters = [
-    ['Text', 'expression', 'TextInput'],
+    #['Text', 'expression', 'TextInput'],
 ]
 
 parameterSet = set()
@@ -27,19 +27,16 @@ fullParameterSet = set()
 for param in inputParameters:
 	fullParameterSet.add(param[2])
 
-'''
-for param in parameterSet:
-	print('param:' + param)
-'''
-
 contents = ''
 contents += '// ' + modelName + 'View.hpp\n'
 contents += '#pragma once\n\n'
 contents += '#include <flow/NodeView.hpp>\n\n'
-contents += 'namespace Flow\n'
-contents += '{\n'
-contents += '	class TextParameter;\n'
-contents += '}\n\n'
+if len(inputParameters) > 0:
+	contents += 'namespace Flow\n'
+	contents += '{\n'
+	for param in inputParameters:
+		contents += '	class ' + param[0] + 'Parameter;\n'
+	contents += '}\n\n'
 contents += 'class ' + modelName + 'View : public Flow::NodeView\n'
 contents += '{\n'
 contents += '	Q_OBJECT\n'
@@ -49,14 +46,16 @@ for param in inputParameters:
 	contents += '	Flow::' + param[0] + 'Parameter& ' + param[1] + 'Parameter();\n'
 if len(inputParameters) > 0:
 	contents += '\n'
-contents += 'private slots:\n'
+	contents += 'private slots:\n'
 for param in inputParameters:
 	upperCaseName = param[1][0].upper() + param[1][1:]
 	contents += '	void update' + upperCaseName + 'Binding();\n'
 
-contents += '\nprivate:\n'
+contents += 'private:\n'
 contents += '	QJsonObject saveModel() const override;\n'
-contents += '	void restoreModel(QJsonObject const& json) override;\n\n'
+contents += '	void restoreModel(QJsonObject const& json) override;\n'
+if len(inputParameters) > 0:
+	contents += '\n'
 for param in inputParameters:
 	upperCaseName = param[1][0].upper() + param[1][1:]
 	contents += '	std::unique_ptr<Flow::' + param[0] + 'Parameter> ' + param[1] + 'Parameter_;\n'
@@ -83,11 +82,13 @@ contents += '		parameterFactory)\n'
 contents += '{\n'
 for param in inputParameters:
 	contents += '	' + param[1] + 'Parameter_ = std::move(parameterFactory.create' + param[2] + 'Parameter());\n'
-contents += '\n'
+if len(inputParameters) > 0:
+	contents += '\n'
 for param in inputParameters:
 	upperCaseName = param[1][0].upper() + param[1][1:]
 	contents += '	QObject::connect(' + param[1] + 'Parameter_.get(), &Flow::NodeParameter::valueChanged, this, &' + modelName + 'View::update' + upperCaseName + 'Binding);\n'
-contents += '\n'
+if len(inputParameters) > 0:
+	contents += '\n'
 for param in inputParameters:
 	upperCaseName = param[1][0].upper() + param[1][1:]
 	contents += '	update' + upperCaseName + 'Binding();\n'
@@ -144,7 +145,8 @@ contents += '#include <main/nodeviews/qml/Qml' + modelName + 'View.hpp>\n'
 contents += '\n'
 for param in fullParameterSet:
 	contents += '#include <main/parameters/Qml' + param + 'Parameter.hpp>\n'
-contents += '\n'
+if len(fullParameterSet) > 0:
+	contents += '\n'
 contents += 'Qml' + modelName + 'View::Qml' + modelName + 'View(Flow::ParameterFactory& parameterFactory)\n'
 contents += '	: ' + modelName + 'View(parameterFactory)\n'
 contents += '	, QmlNodeView("' + modelUserName + '", ":/images/dummy.png")\n'
