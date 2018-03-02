@@ -2,7 +2,7 @@ import applyRegexToFolder as Apply
 import shutil
 
 #inputFolder = 'test'
-outputFolder = r'C:\Work\Source\composer\src\nodeeditor'
+outputFolder = r'C:\Work\Source\composer\src\nodemodels'
 
 #shutil.rmtree(outputFolder, True)
 #shutil.copytree(inputFolder, outputFolder)
@@ -19,5 +19,8 @@ Apply.setExtensionFilter(['cpp', 'hpp', 'h', 'c'])
 
 
 for className in ['ConnectionBlurEffect']:
-	Apply.setParameters(outputFolder, outputFolder, r'([^a-zA-Z/])' + className + r'([^a-zA-Z\.])', r'\1QtNodes::' + className + r'\2')
+	#Apply.setParameters(outputFolder, outputFolder, r'([^a-zA-Z/])' + className + r'([^a-zA-Z\.])', r'\1QtNodes::' + className + r'\2')
 	#Apply.run()
+	
+	Apply.setParameters(outputFolder, outputFolder, r'NodeWidgetStyle::addStyle\((.*)\)', r'\1')
+	Apply.run()
