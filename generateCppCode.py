@@ -12,21 +12,23 @@ def write_contents(contents):
     file.write(contents)
     file.close()
 
-modelName = 'TimeDimension'
-modelUserName = 'Time Dimension'
+modelName = 'LinearCombination'
+modelUserName = 'Linear Combination'
 
 inputParameters = [
-	['Scalar', 'refreshRate', 'ScalarInput'],
+	['Boolean', 'normalizeOutput', 'BooleanInput'],
+	['Integer', 'eigenstateCount', 'IntegerInput'],
+	['ComplexList', 'coefficients', 'ComplexListInput'],
+	['Button', 'normalizeButton', 'Button'],
+	['Button', 'resetButton', 'Button'],
 ]
 
 outputParameters = [
-	['Text', 'currentTimeLabel', 'TextOutput']
+	#['Text', 'resultDisplay', 'TextOutput'],
 ]
 
 constantOutputParameters = [
-	['Text', 'refreshRateLabel', 'TextOutput'],
-	['Button', 'startButton', 'Button'],
-	['Button', 'resetButton', 'Button'],
+	#['Button', 'normalizeButton', 'Button'],
 ]
 
 parameterSet = set()
@@ -234,7 +236,7 @@ if len(constantOutputParameters) > 0:
 	contents += '\n'
 for param in constantOutputParameters:
 	contents += '	addParameter(static_cast<Qml' + param[2] + 'Parameter*>(' + param[1] + 'Parameter_.get()));\n'
-if len(inputParameters) > 0:
+if len(inputParameters) > 0 and len(constantOutputParameters) > 0:
 	contents += '\n'
 for param in inputParameters:
 	contents += '	addParameter(&(static_cast<Qml' + param[2] + 'Parameter&>(' + param[1] + 'Parameter())));\n'
