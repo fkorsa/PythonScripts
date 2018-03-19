@@ -10,6 +10,7 @@ createdFile = ''
 
 isDiffEnabled = False
 isRegexFromFile = False
+isDotMatchingAll = False
 regexFile = ''
 
 def usage():
@@ -69,7 +70,11 @@ def getFileContents(dirname, filename):
 	
 def createParsedOutput(oldContents, filename):
 	global createdFile
-	newContents = re.sub(regex, replacement, oldContents)
+	global isDotMatchingAll
+	flags = 0
+	if isDotMatchingAll:
+		flags = re.DOTALL
+	newContents = re.sub(regex, replacement, oldContents, flags=flags)
 	outputFile = outputFolder + parsedFile[len(inputFolder):len(parsedFile)-len(filename)]
 	if not os.path.exists(outputFile):
 		os.mkdir(outputFile)
@@ -92,16 +97,18 @@ def computeDiff(oldContents, newContents):
 	file.writelines(result)
 	file.close()
 
-def setParameters(_inputFolder, _outputFolder, _regex, _replacement):
+def setParameters(_inputFolder, _outputFolder, _regex, _replacement, _isDotMatchingAll):
 	global inputFolder
 	global outputFolder
 	global regex
 	global replacement
+	global isDotMatchingAll
 	
 	inputFolder = _inputFolder
 	outputFolder = _outputFolder
 	regex = _regex
 	replacement = _replacement
+	isDotMatchingAll = _isDotMatchingAll
 
 extFilter = None
 def setExtensionFilter(_extFilter):

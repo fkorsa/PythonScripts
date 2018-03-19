@@ -12,23 +12,22 @@ def write_contents(contents):
     file.write(contents)
     file.close()
 
-modelName = 'LinearCombination'
-modelUserName = 'Linear Combination'
+modelName = 'Integration'
+modelUserName = 'Integration'
 
 inputParameters = [
-	['Boolean', 'normalizeOutput', 'BooleanInput'],
-	['Integer', 'eigenstateCount', 'IntegerInput'],
-	['ComplexList', 'coefficients', 'ComplexListInput'],
-	['Button', 'normalizeButton', 'Button'],
-	['Button', 'resetButton', 'Button'],
+	['Boolean', 'showPlot', 'BooleanInput'],
+	['Scalar', 'lowerIntegrationBound', 'ScalarInput'],
+	['Scalar', 'higherIntegrationBound', 'ScalarInput'],
 ]
 
 outputParameters = [
-	#['Text', 'resultDisplay', 'TextOutput'],
+	['Plot', 'plot', 'Plot'],
+	['Scalar', 'integrationResult', 'ScalarOutput'],
 ]
 
 constantOutputParameters = [
-	#['Button', 'normalizeButton', 'Button'],
+	['Text', 'label', 'TextOutput'],
 ]
 
 parameterSet = set()
