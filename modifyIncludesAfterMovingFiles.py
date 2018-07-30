@@ -2,7 +2,7 @@ import applyRegexToFolder as Apply
 
 Apply.setExtensionFilter(['cpp', 'hpp', 'h', 'c'])
 
-outputFolder = r'C:\Work\Source\composer3\src'
+outputFolder = r'C:\Work\Source\composer3'
 inputFile = r'C:\Work\Source\rename.log'
 
 file = open(inputFile, 'r')
