@@ -37,5 +37,5 @@ for className in ['ConnectionBlurEffect']:
 	#Apply.setParameters(outputFolder, outputFolder, r'([^a-zA-Z/])' + className + r'([^a-zA-Z\.])', r'\1QtNodes::' + className + r'\2')
 	#Apply.run()
 	
-	Apply.setParameters(outputFolder, outputFolder, r'(Flow::NodeDataModel.*?\t\(.*[^\t\n])(.*?\t\))', r'\1,\n\t\tgraphManager\2', True)
+	Apply.setParameters(outputFolder, outputFolder, r'(Flow::NodeDataModel.*?\t\(.*[^\t\n])(.*?\t\))', r'\1,\n\t\tgraphManager\2', _isDotMatchingAll=True)
 	Apply.run()

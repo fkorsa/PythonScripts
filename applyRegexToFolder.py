@@ -12,6 +12,7 @@ isDiffEnabled = False
 isRegexFromFile = False
 isDotMatchingAll = False
 regexFile = ''
+silentMode = False
 
 def usage():
 	print('Usage : python applyRegexToFolder.py [-d] [-r filename]')
@@ -97,18 +98,20 @@ def computeDiff(oldContents, newContents):
 	file.writelines(result)
 	file.close()
 
-def setParameters(_inputFolder, _outputFolder, _regex, _replacement, _isDotMatchingAll):
+def setParameters(_inputFolder, _outputFolder, _regex, _replacement, _isDotMatchingAll, _silentMode = False):
 	global inputFolder
 	global outputFolder
 	global regex
 	global replacement
 	global isDotMatchingAll
+	global silentMode
 	
 	inputFolder = _inputFolder
 	outputFolder = _outputFolder
 	regex = _regex
 	replacement = _replacement
 	isDotMatchingAll = _isDotMatchingAll
+	silentMode = _silentMode
 
 extFilter = None
 def setExtensionFilter(_extFilter):
@@ -124,9 +127,11 @@ def run():
 			if not extFilter or os.path.splitext(filename)[1][1:] in extFilter:
 				oldContents = getFileContents(dirname, filename)
 				newContents = createParsedOutput(oldContents, filename)
+				if not silentMode:
+					print('Processed ' + os.path.join(dirname, filename))
 				if isDiffEnabled:
 					computeDiff(oldContents, newContents)
-			else:
+			elif not silentMode:
 				print('Ignored ' + os.path.join(dirname, filename))
 
 parseOptions()
