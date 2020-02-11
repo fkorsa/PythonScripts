@@ -1,5 +1,6 @@
 # Import all dependencies
 import re, os, difflib, sys, getopt
+import locale
 
 inputFolder = ''
 outputFolder = ''
@@ -56,15 +57,15 @@ def readInput():
 def getFileContents(dirname, filename):
 	global parsedFile
 	parsedFile = os.path.join(dirname, filename)
+	contents = ''
+	file = open(parsedFile, 'rb')
+	contents = file.read()
+	file.close()
 	try:
-		file = open(parsedFile, 'r')
-		contents = file.read()
-		file.close()
+		contents = contents.decode('utf-8')
 	except UnicodeDecodeError:
 		try:
-			file = open(parsedFile, 'r', encoding='utf8')
-			contents = file.read()
-			file.close()
+			contents = contents.decode(locale.getpreferredencoding(False))
 		except:
 			print('Error while parsing file' + parsedFile)
 	return contents
@@ -76,13 +77,14 @@ def createParsedOutput(oldContents, filename):
 	if isDotMatchingAll:
 		flags = re.DOTALL
 	newContents = re.sub(regex, replacement, oldContents, flags=flags)
-	outputFile = outputFolder + parsedFile[len(inputFolder):len(parsedFile)-len(filename)]
-	if not os.path.exists(outputFile):
-		os.mkdir(outputFile)
-	createdFile = outputFolder + parsedFile[len(inputFolder):len(parsedFile)]
-	file = open(createdFile, 'w')
-	file.write(newContents)
-	file.close()
+	if newContents != oldContents:
+		outputFile = outputFolder + parsedFile[len(inputFolder):len(parsedFile)-len(filename)]
+		if not os.path.exists(outputFile):
+			os.mkdir(outputFile)
+		createdFile = outputFolder + parsedFile[len(inputFolder):len(parsedFile)]
+		file = open(createdFile, 'wb')
+		file.write(newContents.encode('utf-8'))
+		file.close()
 	return newContents
 	
 def computeDiff(oldContents, newContents):

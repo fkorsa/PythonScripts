@@ -10,7 +10,7 @@
 # cookbook repository. For example, "/c/work/cookbook", or just "./cookbook" (without the quotes, of course).
 import re, os
 
-inputFolder = raw_input('>> Input folder : ')
+inputFolder = input('>> Input folder : ')
 
 file = open('fileList.txt', 'r')
 contents = file.read()
@@ -32,7 +32,7 @@ for dirname, dirnames, filenames in os.walk(inputFolder):
             filenameSearched = filenameSearched.replace('\\', '/')
             filenameSearched = re.sub(r'.*?cookbook/.*?/(.*)', r'\1', filenameSearched, 0, re.DOTALL)
             if filenameSearched not in files:
-                print 'Removing ' + filenameSearched + '.'
+                print('Removing ' + filenameSearched + '.')
                 os.remove(dirname + '/' + filename)
             else:
-                print 'Not removing ' + filenameSearched + '.'
+                print('Not removing ' + filenameSearched + '.')
