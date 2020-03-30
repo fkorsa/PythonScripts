@@ -25,7 +25,7 @@ class FileChanger(fileUtils.FileChanger):
         newContents = ''
         lastIndex = 0
         for match in re.finditer(
-                r'\}?\s*(// ?\*+)?\s*(([a-zA-Z<>*_&: ]+)?\s+\w+::~?\w+\([^)]*\)\s*(const)?\s*(:\s*[^{/]+)?)\s*(// ?\*+)?\s*\{',
+                r'\}?\s*(// ?\*+)?\s*(([a-zA-Z<>*_&: ]+)?\s+\*?\&?\*?\&?\w+::~?\w+\([^)]*\)\s*(const)?\s*(:\s*[^{/]+)?)\s*(// ?\*+)?\s*\{',
                 contents):
             matchStart = match.start()
             if match.group(0)[0] == '}':
