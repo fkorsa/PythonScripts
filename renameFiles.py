@@ -8,10 +8,13 @@ def GetNewName(oldName, parameters):
         and not '.eon' in oldName
         ):
         raise ValueError()"""
-    newFilename = oldName
-    pictureIndex = re.sub(parameters[0] + parameters[1] + r'\.([0-9]+)\.png', r'\1', oldName)
-    newFilename = parameters[0] + '_' + ('0' * (5 - len(pictureIndex))) + str(pictureIndex) + parameters[2] + '.png'
-    return newFilename
+    pattern = r'([a-zA_Z_\.]+)([0-9]+)(.*)'
+    beginning = re.sub(pattern, r'\1', oldName)
+    pictureIndex = int(re.sub(pattern, r'\2', oldName)) - 1
+    ending = re.sub(pattern, r'\3', oldName)
+    pictureIndexString = str(pictureIndex)
+    pictureIndexString = ('0' * (5 - len(pictureIndexString))) + pictureIndexString
+    return beginning + pictureIndexString + ending
 
 def renameFiles(inputFolder, outputFolder, parameters):
     if not os.path.exists(outputFolder):

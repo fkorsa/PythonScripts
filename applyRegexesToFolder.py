@@ -2,14 +2,22 @@ import applyRegexToFolder as Apply
 import shutil
 
 #inputFolder = 'test'
-outputFolder = r'C:\Work\Source\luxion\src'
+outputFolder = r'C:\Work\Source\luxion-2\src\keyshot\animation\types'
 
 #shutil.rmtree(outputFolder, True)
 #shutil.copytree(inputFolder, outputFolder)
 
 Apply.setExtensionFilter(['cpp', 'hpp', 'h', 'c', 'cc'])
 
-Apply.setParameters(outputFolder, outputFolder, r'KGlobalIconCache::themeIcon\("([^"]+)"(_qs)?\)', r'LUX_THEME_ICON("\1")', False, True)
+pattern = r'\r?\n// \*{97}'
+pattern += r'\r?\nbool K[a-zA-Z]+ViewFactory::isAlwaysActive\(\) const'
+pattern += r'\r?\n// \*{97}'
+pattern += r'\r?\n{'
+pattern += r'\r?\n  return true;'
+pattern += r'\r?\n}'
+pattern += r'\r?\n'
+
+Apply.setParameters(outputFolder, outputFolder, pattern, r'', False, False)
 Apply.run()
 
 #Apply.setParameters(outputFolder, outputFolder, r'findSvgIcons\("([^"]+)"(_qs)?\)', r'setIcon(LUX_SVGICON("\1"))', False, True)

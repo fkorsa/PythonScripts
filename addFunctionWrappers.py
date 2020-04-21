@@ -5,17 +5,15 @@ import fileUtils
 import subprocess
 import time
 
-input = sys.argv[1]
-start = time.time()
 functionDeclPattern = re.compile(r'[a-zA-Z]+?\s*?::\s*?~?[a-zA-Z]+?\s*?\(')
-commentPattern = re.compile(r'//\s*?\*+?')
-
+commentPattern = re.compile(r'\s*?//\s*?\*+?')
 commentLine = '// ' + ('*' * 97)
 
 
 def runClangFormat(filePath):
-    result = subprocess.run([os.environ['CLANG_FORMAT_PATH'], '-style=file', filePath], capture_output=True)
+    result = subprocess.run([os.environ['CLANG_FORMAT_PATH'], '-style=file', filePath], capture_output=True, text=True)
     result.check_returncode()
+    fileUtils.writeFile(filePath, result.stdout)
 
 
 def lineHasNamespaceBegin(line):
@@ -104,15 +102,21 @@ def treatFile(filePath):
     fileChanger.run(filePath)
     runClangFormat(filePath)
 
+def add(input):
+    start = time.time()
 
-if os.path.isdir(input):
-    for dirname, _, filenames in os.walk(input):
-        for filename in filenames:
-            if filename.endswith('.cc'):
-                filePath = os.path.join(dirname, filename)
-                treatFile(filePath)
-else:
-    treatFile(input)
+    if os.path.isdir(input):
+        for dirname, _, filenames in os.walk(input):
+            for filename in filenames:
+                if filename.endswith('.cc'):
+                    filePath = os.path.join(dirname, filename)
+                    treatFile(filePath)
+    else:
+        treatFile(input)
 
-end = time.time()
-print('Duration: %.2f' % (end - start) + 's')
+    end = time.time()
+    print('Duration: %.2f' % (end - start) + 's')
+
+
+if __name__ == '__main__':
+    add(sys.argv[1])
