@@ -45,6 +45,7 @@ class FileChanger(fileUtils.FileChanger):
         currentNamespaceBalance = 0
         isInFunctionDecl = False
         foundEndingWrapper = False
+        skipNextLine = False
         for line in lines:
             addition = line
             currentBraceBalance += braceBalance(line)
@@ -53,47 +54,90 @@ class FileChanger(fileUtils.FileChanger):
             if currentBraceBalance < 0:
                 currentNamespaceBalance += currentBraceBalance
                 currentBraceBalance = 0
-            if not isInFunctionDecl and (currentBraceBalance == 0 or (
-                    currentBraceBalance == 1 and braceBalance(line) == 1)) and '#include' not in line and 'using ' not in line and line.strip() != '':
-                functionDeclMatch = functionDeclPattern.search(line)
-                if functionDeclMatch is not None:
-                    previousLine = lines[lineIndex - 1]
-                    if commentPattern.match(previousLine) is not None:
-                        newContents[-1] = commentLine + '\n'
-                    elif previousLine.strip() == '':
-                        newContents.append(commentLine + '\n')
-                    else:
-                        previousLine = lines[lineIndex - 2]
-                        if commentPattern.match(previousLine) is not None:
-                            newContents[-2] = commentLine + '\n'
-                        elif previousLine.strip() == '':
-                            newContents = newContents[:-2] + [commentLine + '\n'] + newContents[-2:]
-                    isInFunctionDecl = True
-                    foundEndingWrapper = False
-            if isInFunctionDecl:
-                if commentPattern.match(line) is not None:
-                    addition = commentLine
-                    foundEndingWrapper = True
-                else:
-                    braceIndex = line.find('{')
-                    if braceIndex > -1:
-                        isInFunctionDecl = False
-                        if not foundEndingWrapper:
-                            if braceIndex == 0:
-                                if not foundEndingWrapper:
-                                    newContents.append(commentLine + '\n')
-                            else:
-                                substringBeforeBrace = line[0:braceIndex]
-                                if substringBeforeBrace.strip() == '':
-                                    newContents.append(commentLine + '\n')
-                                else:
-                                    newContents.append(substringBeforeBrace + '\n' + commentLine + '\n')
-                                addition = line[braceIndex:]
-            if lineIndex < len(lines) - 1:
-                addition += '\n'
-            newContents.append(addition)
+            if skipNextLine:
+                skipNextLine = False
+            else:
+                newContents, skipNextLine, isInFunctionDecl, foundEndingWrapper = self.treatLine(addition,
+                                                                                                 currentBraceBalance,
+                                                                                                 foundEndingWrapper,
+                                                                                                 isInFunctionDecl, line,
+                                                                                                 lineIndex, lines,
+                                                                                                 newContents,
+                                                                                                 skipNextLine)
             lineIndex += 1
         return ''.join(newContents)
+
+    def treatLine(self, addition, currentBraceBalance, foundEndingWrapper, isInFunctionDecl, line, lineIndex, lines,
+                  newContents, skipNextLine):
+        addition, newContents, skipNextLine, isInFunctionDecl, foundEndingWrapper = self.matchLine(addition,
+                                                                                                   currentBraceBalance,
+                                                                                                   foundEndingWrapper,
+                                                                                                   isInFunctionDecl,
+                                                                                                   line, lineIndex,
+                                                                                                   lines, newContents,
+                                                                                                   skipNextLine)
+        if lineIndex < len(lines) - 1:
+            addition += '\n'
+        newContents.append(addition)
+        return newContents, skipNextLine, isInFunctionDecl, foundEndingWrapper
+
+    def matchLine(self, addition, currentBraceBalance, foundEndingWrapper, isInFunctionDecl, line, lineIndex, lines,
+                  newContents, skipNextLine):
+        if not isInFunctionDecl and (currentBraceBalance == 0 or (
+                currentBraceBalance == 1 and braceBalance(
+            line) == 1)) and '#include' not in line and 'using ' not in line and line.strip() != '':
+            foundEndingWrapper, isInFunctionDecl, newContents = self.matchFunctionDecl(foundEndingWrapper,
+                                                                                       isInFunctionDecl, line,
+                                                                                       lineIndex, lines,
+                                                                                       newContents)
+        if isInFunctionDecl:
+            addition, foundEndingWrapper, isInFunctionDecl, skipNextLine = self.matchEndingWrapper(
+                addition, foundEndingWrapper, isInFunctionDecl, line, lineIndex, lines, newContents,
+                skipNextLine)
+        return addition, newContents, skipNextLine, isInFunctionDecl, foundEndingWrapper
+
+    def matchEndingWrapper(self, addition, foundEndingWrapper, isInFunctionDecl, line, lineIndex, lines, newContents,
+                           skipNextLine):
+        if commentPattern.match(line) is not None:
+            addition = commentLine
+            foundEndingWrapper = True
+        else:
+            braceIndex = line.find('{')
+            if braceIndex > -1:
+                isInFunctionDecl = False
+                if not foundEndingWrapper:
+                    if braceIndex == 0:
+                        if not foundEndingWrapper:
+                            newContents.append(commentLine + '\n')
+                    else:
+                        if commentPattern.match(lines[lineIndex + 1]):
+                            skipNextLine = True
+                        substringBeforeBrace = line[0:braceIndex]
+                        if substringBeforeBrace.strip() == '':
+                            newContents.append(commentLine + '\n')
+                        else:
+                            newContents.append(substringBeforeBrace + '\n')
+                            newContents.append(commentLine + '\n')
+                        addition = line[braceIndex:]
+        return addition, foundEndingWrapper, isInFunctionDecl, skipNextLine
+
+    def matchFunctionDecl(self, foundEndingWrapper, isInFunctionDecl, line, lineIndex, lines, newContents):
+        functionDeclMatch = functionDeclPattern.search(line)
+        if functionDeclMatch is not None:
+            previousLine = lines[lineIndex - 1]
+            if commentPattern.match(previousLine) is not None:
+                newContents[-1] = commentLine + '\n'
+            elif previousLine.strip() == '':
+                newContents.append(commentLine + '\n')
+            else:
+                previousLine = lines[lineIndex - 2]
+                if commentPattern.match(previousLine) is not None:
+                    newContents[-2] = commentLine + '\n'
+                elif previousLine.strip() == '':
+                    newContents = newContents[:-2] + [commentLine + '\n'] + newContents[-2:]
+            isInFunctionDecl = True
+            foundEndingWrapper = False
+        return foundEndingWrapper, isInFunctionDecl, newContents
 
 
 def treatFile(filePath):
@@ -101,6 +145,7 @@ def treatFile(filePath):
     print('Processing ' + filePath)
     fileChanger.run(filePath)
     runClangFormat(filePath)
+
 
 def add(input):
     start = time.time()
