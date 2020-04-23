@@ -110,7 +110,7 @@ class FileChanger(fileUtils.FileChanger):
                         if not foundEndingWrapper:
                             newContents.append(commentLine + '\n')
                     else:
-                        if commentPattern.match(lines[lineIndex + 1]):
+                        if len(lines) > lineIndex + 1 and commentPattern.match(lines[lineIndex + 1]):
                             skipNextLine = True
                         substringBeforeBrace = line[0:braceIndex]
                         if substringBeforeBrace.strip() == '':
