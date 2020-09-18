@@ -5,7 +5,7 @@ import fileUtils
 import subprocess
 import time
 
-functionDeclPattern = re.compile(r'[a-zA-Z]+?\s*?::\s*?~?[a-zA-Z]+?\s*?\(')
+functionDeclPattern = re.compile(r'[a-zA-Z_]+?\s*?::\s*?~?[a-zA-Z_]+?\s*?\(')
 commentPattern = re.compile(r'\s*?//\s*?\*+?')
 commentLine = '// ' + ('*' * 97)
 
