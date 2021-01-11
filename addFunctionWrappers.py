@@ -141,23 +141,24 @@ class FileChanger(fileUtils.FileChanger):
 
 
 def treatFile(filePath):
-    fileChanger = FileChanger()
     print('Processing ' + filePath)
-    fileChanger.run(filePath)
-    runClangFormat(filePath)
+    if filePath.endswith('.cc'):
+        fileChanger = FileChanger()
+        fileChanger.run(filePath)
+    if filePath.endswith('.cc') or filePath.endswith('.h'):
+        runClangFormat(filePath)
 
 
-def add(input):
+def add(inputPath):
     start = time.time()
 
-    if os.path.isdir(input):
-        for dirname, _, filenames in os.walk(input):
+    if os.path.isdir(inputPath):
+        for dirname, _, filenames in os.walk(inputPath):
             for filename in filenames:
-                if filename.endswith('.cc'):
-                    filePath = os.path.join(dirname, filename)
-                    treatFile(filePath)
+                filePath = os.path.join(dirname, filename)
+                treatFile(filePath)
     else:
-        treatFile(input)
+        treatFile(inputPath)
 
     end = time.time()
     print('Duration: %.2f' % (end - start) + 's')
