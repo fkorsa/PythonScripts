@@ -2,6 +2,7 @@ import subprocess
 import sys
 import re
 import os
+import shutil
 
 
 def modifySvgColor(svgFilePath):
@@ -31,7 +32,7 @@ def exportSvg(filePath, outputPath):
 
 
 def parseFolder(inputFolder, outputFolder):
-    os.rmdir(outputFolder)
+    shutil.rmtree(outputFolder)
     os.mkdir(outputFolder)
     folderContents = os.listdir(inputFolder)
     for file in folderContents:
