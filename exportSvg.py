@@ -32,7 +32,7 @@ def exportSvg(filePath, outputPath):
 
 
 def parseFolder(inputFolder, outputFolder):
-    shutil.rmtree(outputFolder)
+    shutil.rmtree(outputFolder, ignore_errors=True)
     os.mkdir(outputFolder)
     folderContents = os.listdir(inputFolder)
     for file in folderContents:
