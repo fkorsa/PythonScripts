@@ -25,7 +25,7 @@ def createParsedOutput(dirname, oldFilename):
 	if not os.path.exists(outputFileDir):
 		os.mkdir(outputFileDir)
 	shutil.copyfile(oldFilePath, newFilePath)
-	print oldFilePath + '  --->  ' + newFilePath
+	print(oldFilePath + '  --->  ' + newFilePath)
 	
 readInput()
 
