@@ -11,6 +11,10 @@ commentLine = '// ' + ('*' * 97)
 
 
 def runClangFormat(filePath):
+    clangFormatPath = os.environ['CLANG_FORMAT_PATH']
+    if not os.path.exists(clangFormatPath):
+        print(f'Error: clang format path "{clangFormatPath}" does not exist')
+        return
     result = subprocess.run([os.environ['CLANG_FORMAT_PATH'], '-style=file', filePath], capture_output=True, text=True)
     result.check_returncode()
     fileUtils.writeFile(filePath, result.stdout)
@@ -141,7 +145,13 @@ class FileChanger(fileUtils.FileChanger):
 
 
 def treatFile(filePath):
-    print('Processing ' + filePath)
+    print('Formatting ' + filePath)
+    if not os.path.exists(filePath):
+        print(f'Error: file {filePath} does not exist')
+        return
+    if not os.path.isfile(filePath):
+        print(f'Error: path {filePath} is not a file')
+        return
     if filePath.endswith('.cc'):
         fileChanger = FileChanger()
         fileChanger.run(filePath)
@@ -150,8 +160,6 @@ def treatFile(filePath):
 
 
 def add(inputPath):
-    start = time.time()
-
     if os.path.isdir(inputPath):
         for dirname, _, filenames in os.walk(inputPath):
             for filename in filenames:
@@ -159,9 +167,6 @@ def add(inputPath):
                 treatFile(filePath)
     else:
         treatFile(inputPath)
-
-    end = time.time()
-    print('Duration: %.2f' % (end - start) + 's')
 
 
 if __name__ == '__main__':

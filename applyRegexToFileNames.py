@@ -12,10 +12,10 @@ def readInput():
 	global outputFolder
 	global regex
 	global replacement
-	inputFolder = raw_input('>> Input folder : ')
-	outputFolder = raw_input('>> Output folder : ')
-	regex = raw_input('>> Regex : ')
-	replacement = raw_input('>> Replacement : ')
+	inputFolder = input('>> Input folder : ')
+	outputFolder = input('>> Output folder : ')
+	regex = input('>> Regex : ')
+	replacement = input('>> Replacement : ')
 	
 def createParsedOutput(dirname, oldFilename):
 	newFilename = re.sub(regex, replacement, oldFilename)
@@ -25,7 +25,7 @@ def createParsedOutput(dirname, oldFilename):
 	if not os.path.exists(outputFileDir):
 		os.mkdir(outputFileDir)
 	shutil.copyfile(oldFilePath, newFilePath)
-	print oldFilePath + '  --->  ' + newFilePath
+	print(oldFilePath + '  --->  ' + newFilePath)
 	
 readInput()
 
