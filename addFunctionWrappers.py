@@ -11,9 +11,8 @@ commentLine = '// ' + ('*' * 97)
 
 
 def runClangFormat(filePath):
-    clangFormatPath = os.environ['CLANG_FORMAT_PATH']
-    if not os.path.exists(clangFormatPath):
-        print(f'Error: clang format path "{clangFormatPath}" does not exist')
+    if 'CLANG_FORMAT_PATH' not in os.environ or not os.path.exists(os.environ['CLANG_FORMAT_PATH']):
+        print('Could not find clang format executable.')
         return
     result = subprocess.run([os.environ['CLANG_FORMAT_PATH'], '-style=file', filePath], capture_output=True, text=True)
     result.check_returncode()

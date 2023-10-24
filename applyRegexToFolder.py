@@ -68,6 +68,7 @@ def getFileContents(dirname, filename):
 			contents = contents.decode(locale.getpreferredencoding(False))
 		except:
 			print('Error while parsing file' + parsedFile)
+			contents = ''
 	return contents
 	
 def createParsedOutput(oldContents, filename):
@@ -128,11 +129,12 @@ def run():
 		for filename in filenames:
 			if not extFilter or os.path.splitext(filename)[1][1:] in extFilter:
 				oldContents = getFileContents(dirname, filename)
-				newContents = createParsedOutput(oldContents, filename)
-				if not silentMode:
-					print('Processed ' + os.path.join(dirname, filename))
-				if isDiffEnabled:
-					computeDiff(oldContents, newContents)
+				if oldContents != '':
+					newContents = createParsedOutput(oldContents, filename)
+					if not silentMode:
+						print('Processed ' + os.path.join(dirname, filename))
+					if isDiffEnabled:
+						computeDiff(oldContents, newContents)
 			elif not silentMode:
 				print('Ignored ' + os.path.join(dirname, filename))
 
